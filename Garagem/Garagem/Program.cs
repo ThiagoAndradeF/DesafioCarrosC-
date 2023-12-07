@@ -32,7 +32,7 @@ namespace Garagem
             services.AddTransient<IVeiculo, VeiculoService>();
             services.AddTransient<IGaragem, GaragemService>();
             services.AddDbContext<GaragemContext>(options =>
-                    options.UseMySql("server=localhost;port=3306;database=minhaBaseDeDados;user=meuUsuario;password=minhaSenha;",
+                    options.UseMySql("server=localhost;port=3306;database=minhaBaseDeDados;user=root;password=1234;",
                             new MySqlServerVersion(new Version(8, 0, 21))));
         }
     }
