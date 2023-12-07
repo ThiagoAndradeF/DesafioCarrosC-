@@ -1,3 +1,7 @@
+using Garagem.Services;
+using Garagem.Services.Repositories;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace Garagem
 {
     internal static class Program
@@ -8,10 +12,24 @@ namespace Garagem
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            var services = new ServiceCollection();
+            ConfigureServices(services);
+            using (ServiceProvider serviceProvider = services.BuildServiceProvider())
+            {
+                var form1 = serviceProvider.GetRequiredService<Form1>();
+                Application.Run(form1);
+            }
+
+        }
+        private static void ConfigureServices(IServiceCollection services)
+        {
+            services.AddMemoryCache();
+            services.AddTransient<IMarca, MarcaService>();
+            services.AddTransient<IModelo, ModeloService>();
+            services.AddTransient<IVeiculo, VeiculoService>();
+
+            services.AddTransient<Form1>();
         }
     }
 }
