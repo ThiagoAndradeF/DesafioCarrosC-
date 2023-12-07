@@ -1,7 +1,8 @@
 using Garagem.Services;
 using Garagem.Services.Repositories;
 using Microsoft.Extensions.DependencyInjection;
-
+using Microsoft.EntityFrameworkCore;
+using Garagem.Data.DbContexts;
 namespace Garagem
 {
     internal static class Program
@@ -15,6 +16,7 @@ namespace Garagem
             ApplicationConfiguration.Initialize();
             var services = new ServiceCollection();
             ConfigureServices(services);
+
             using (ServiceProvider serviceProvider = services.BuildServiceProvider())
             {
                 var form1 = serviceProvider.GetRequiredService<Form1>();
@@ -28,8 +30,10 @@ namespace Garagem
             services.AddTransient<IMarca, MarcaService>();
             services.AddTransient<IModelo, ModeloService>();
             services.AddTransient<IVeiculo, VeiculoService>();
-
-            services.AddTransient<Form1>();
+            services.AddTransient<IGaragem, GaragemService>();
+            services.AddDbContext<GaragemContext>(options =>
+                    options.UseMySql("server=localhost;port=3306;database=minhaBaseDeDados;user=meuUsuario;password=minhaSenha;",
+                            new MySqlServerVersion(new Version(8, 0, 21))));
         }
     }
 }

@@ -2,7 +2,7 @@ namespace  Garagem.Models;
 
 public class VeiculoDto
 {
-    public int Id { get; set; }
+    public int Id {get;set;}  
     public string Placa { get; set; } = string.Empty;
     public string Chassi { get; set; } = string.Empty;
     public int AnoFabricacao { get; set; }
