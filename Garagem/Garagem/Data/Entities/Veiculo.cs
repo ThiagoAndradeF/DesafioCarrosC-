@@ -1,7 +1,10 @@
-﻿namespace Garagem.Data.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Garagem.Data.Entities
 {
     public class Veiculo
     {
+        [Key]
         public int Id { get; set; }
         public string Placa { get; set; } = string.Empty;
         public string Chassi { get; set; } = string.Empty;

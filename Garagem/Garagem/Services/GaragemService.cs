@@ -1,10 +1,15 @@
 using Garagem.Models;
 using Garagem.Services.Repositories;
 namespace  Garagem.Services;
-public class GaragemService : IGaragem
-{
-    public Task<IEnumerable<VeiculoDto>> GetAllVeiculos()
+public class GaragemService{
+    private readonly IGaragemRepository _garagemRepository;
+    public GaragemService(IGaragemRepository garagemRepository)
     {
-        throw new NotImplementedException();
+        _garagemRepository = garagemRepository;
     }
+
+
+
+
+
 }

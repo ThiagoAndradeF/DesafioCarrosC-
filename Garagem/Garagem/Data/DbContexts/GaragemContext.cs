@@ -1,57 +1,55 @@
-﻿using Garagem.Data.Entities;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using Garagem.Data.Entities;
 
 namespace Garagem.Data.DbContexts
 {
-    public  class GaragemContext : DbContext
+    public class GaragemContext : DbContext
     {
         public DbSet<Veiculo> Veiculos { get; set; }
-        public GaragemContext(DbContextOptions<GaragemContext> options) : base(options) { }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+                => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=Garagem;Username=postgres;Password=3309;Include Error Detail=true");
+
+        public GaragemContext(DbContextOptions options): base(options)
+        { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            // Configuração da tabela Veiculos
+            modelBuilder.Entity<Veiculo>(entity =>
+            {
+                // entity.ToTable("Veiculos");
+                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Placa)
+                    .IsRequired()
+                    .HasMaxLength(7);
 
-            // Configurações para Veiculo
-            modelBuilder.Entity<Veiculo>()
-                .Property(v => v.Placa)
-                .HasMaxLength(7)
-                .IsRequired();
-            modelBuilder.Entity<Veiculo>()
-                .Property(v => v.Chassi)
-                .HasMaxLength(10)
-                .IsRequired();
-            modelBuilder.Entity<Veiculo>()
-                .Property(v => v.AnoFabricacao)
-                .HasMaxLength(4)
-                .IsRequired();
-            modelBuilder.Entity<Veiculo>()
-                .Property(v => v.AnoModelo)
-                .HasMaxLength(4)
-                .IsRequired();
-            modelBuilder.Entity<Veiculo>()
-                .Property(v => v.ValorFIPE)
-                .HasMaxLength(10)
-                .IsRequired();
-            modelBuilder.Entity<Veiculo>()
-                .Property(v => v.ValorVenda)
-                .HasMaxLength(10)
-                .IsRequired();
-            modelBuilder.Entity<Veiculo>()
-                .Property(v => v.IdModelo)
-                .HasMaxLength(10)
-                .IsRequired();
-            modelBuilder.Entity<Veiculo>()
-                .Property(v => v.IdMarca)
-                .HasMaxLength(10)
-                .IsRequired();
+                entity.Property(e => e.Chassi)
+                    .IsRequired()
+                    .HasMaxLength(17);
 
+                entity.Property(e => e.AnoFabricacao)
+                    .IsRequired();
+
+                entity.Property(e => e.AnoModelo)
+                    .IsRequired();
+
+                entity.Property(e => e.ValorFIPE)
+                    .HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.ValorVenda)
+                    .HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.Observacoes)
+                    .HasMaxLength(500); 
+
+                entity.Property(e => e.IdMarca)
+                    .IsRequired()
+                    .HasMaxLength(15); 
+
+                entity.Property(e => e.IdModelo)
+                    .IsRequired()
+                    .HasMaxLength(15); 
+            });
             base.OnModelCreating(modelBuilder);
         }
     }
-    
 }
