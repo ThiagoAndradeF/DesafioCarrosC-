@@ -1,5 +1,5 @@
 
-using Garagem.Services.Repositories;
+using Garagem.Infra.Repositories;
 
 namespace  Garagem.Services;
 public class ModeloService{

@@ -1,7 +1,7 @@
 
 using System.Text;
 using Garagem.Models;
-using Garagem.Services.Repositories;
+using Garagem.Infra.Repositories;
 using Newtonsoft.Json;
 
 namespace  Garagem.Services;

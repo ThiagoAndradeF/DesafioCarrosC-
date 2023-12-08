@@ -1,18 +1,21 @@
 using Garagem.Models;
-using Garagem.Services.Repositories;
+using Garagem.Infra.Repositories;
 using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
 
-namespace  Garagem.Services.Repositories;
-public interface IModeloRepository{
-    public Task<List<ModeloDto>>GetModelosByIdMarcaAsync(string marcaId);
+namespace Garagem.Infra.Repositories;
+public interface IModeloRepository
+{
+    public Task<List<ModeloDto>> GetModelosByIdMarcaAsync(string marcaId);
 }
 
-public class ModeloRepository : IModeloRepository{
+public class ModeloRepository : IModeloRepository
+{
     private readonly IMemoryCache _cache;
     private readonly MemoryCacheEntryOptions _cacheOptions;
 
-    public ModeloRepository(IMemoryCache cache){
+    public ModeloRepository(IMemoryCache cache)
+    {
         _cache = cache;
         _cacheOptions = new MemoryCacheEntryOptions
         {
@@ -34,7 +37,7 @@ public class ModeloRepository : IModeloRepository{
         catch (Exception ex)
         {
             Console.WriteLine($"Erro ao buscar modelos: {ex.Message}");
-            return new List<ModeloDto>(); 
+            return new List<ModeloDto>();
         }
     }
 
@@ -54,7 +57,7 @@ public class ModeloRepository : IModeloRepository{
             {
                 // Log the exception
                 Console.WriteLine($"Erro na requisição HTTP: {e.Message}");
-                return new List<ModeloDto>(); 
+                return new List<ModeloDto>();
             }
             catch (JsonException e)
             {

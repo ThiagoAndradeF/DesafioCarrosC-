@@ -1,14 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Garagem.Data.Entities;
+using MySql.Data.MySqlClient;
 
 namespace Garagem.Data.DbContexts
 {
     public class GaragemContext : DbContext
-    {
+    {   
+        
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
+            if(!optionsBuilder.IsConfigured){
+                var conexaoString = "Host=localhost;Port=5432;Database=Garagem;Username=postgres;Password=3309;Include Error Detail=true";
+                optionsBuilder.UseNpgsql(conexaoString);
+            } 
+        }
         public DbSet<Veiculo> Veiculos { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-                => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=Garagem;Username=postgres;Password=3309;Include Error Detail=true");
-
         public GaragemContext(DbContextOptions options): base(options)
         { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -51,5 +56,7 @@ namespace Garagem.Data.DbContexts
             });
             base.OnModelCreating(modelBuilder);
         }
+        
+       
     }
 }

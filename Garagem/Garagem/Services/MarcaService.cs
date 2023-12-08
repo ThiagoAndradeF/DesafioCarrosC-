@@ -1,5 +1,5 @@
 using Garagem.Models;
-using Garagem.Services.Repositories;
+using Garagem.Infra.Repositories;
 using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
 

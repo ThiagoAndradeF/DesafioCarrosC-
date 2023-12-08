@@ -1,5 +1,5 @@
 using Garagem.Models;
-using Garagem.Services.Repositories;
+using Garagem.Infra.Repositories;
 namespace  Garagem.Services;
 public class VeiculoService {
     private readonly IVeiculoRepository _veiculoRepository;
