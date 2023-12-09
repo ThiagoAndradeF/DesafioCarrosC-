@@ -15,8 +15,8 @@ namespace Garagem.Infra.Repositories
             {
                 var loginRequest = new LoginRequestDto
                 {
-                    User = username,
-                    Password = password
+                    user = username,
+                    password = password
                 };
 
                 var content = new StringContent(JsonConvert.SerializeObject(loginRequest), Encoding.UTF8, "application/json");
@@ -31,7 +31,7 @@ namespace Garagem.Infra.Repositories
                         var loginResponse = JsonConvert.DeserializeObject<LoginResponseDto>(jsonResponse);
 
                         // Se o login não retornar erro e um token for recebido, considere como sucesso
-                        return !loginResponse.Error && !string.IsNullOrWhiteSpace(loginResponse.User.Token);
+                        return !loginResponse.Error && !string.IsNullOrWhiteSpace(loginResponse.user.token);
                     }
                     else
                     {

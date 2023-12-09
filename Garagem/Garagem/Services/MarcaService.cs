@@ -18,8 +18,9 @@ public class MarcaService{
         {
             return await _marcaRepository.GetMarcasAsync();
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
+            MessageBox.Show("Desculpe", "Erro ao obter as marcas.");
             throw new Exception("Houve um erro ao obter as marcas: ", ex);
         }
         

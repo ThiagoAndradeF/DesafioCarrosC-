@@ -21,6 +21,7 @@ public class ModeloService{
         }
         catch (System.Exception ex)
         {
+            MessageBox.Show("Desculpe", "Erro ao obter modelos dessa marca especificada.");
             throw new Exception("Houve um erro ao obter os modelos dessa marca: ", ex);
         }
         

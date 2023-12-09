@@ -1,6 +1,6 @@
 namespace  Garagem.Models;
 public class LoginRequestDto
 {
-    public string User { get; set; } = string.Empty;
-    public string Password { get; set; } = string.Empty;
+    public string user { get; set; } = string.Empty;
+    public string password { get; set; } = string.Empty;
 }

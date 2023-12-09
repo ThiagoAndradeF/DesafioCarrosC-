@@ -22,7 +22,7 @@ public class AuthenticationService
         }
         else
         {
-            Console.WriteLine("Falha no login.");
+            MessageBox.Show("Desculpe, Credenciais não cadastradas.", "Credenciais não cadastradas.");
             return false;
         }
     }

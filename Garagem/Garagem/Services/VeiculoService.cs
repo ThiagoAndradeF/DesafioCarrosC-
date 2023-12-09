@@ -15,6 +15,7 @@ public class VeiculoService {
         }
         catch (Exception ex)
         {
+            MessageBox.Show("Desculpe", "Ocorreu um erro inesperado ao criar um veículo");
             throw new Exception("Ocorreu um erro inesperado ao criar um veículo: ", ex);
         }
     }
@@ -26,6 +27,7 @@ public class VeiculoService {
         }
         catch (Exception ex)
         {
+            MessageBox.Show("Desculpe","Ocorreu um erro inesperado ao editar o veículo selecionado");
             throw new Exception("Ocorreu um erro inesperado ao editar o veículoselecionado: ", ex);
         }
     }
@@ -37,6 +39,7 @@ public class VeiculoService {
         }
         catch (Exception ex)
         {
+            MessageBox.Show("Desculpe", "Ocorreu um erro inesperado ao excluir o veículo selecionado");
             throw new Exception("Ocorreu um erro inesperado ao excluir o veículo selecionado: ", ex);
         }
     }
@@ -48,6 +51,7 @@ public class VeiculoService {
         }
         catch (Exception ex)
         {
+            MessageBox.Show("Desculpe", "Ocorreu um erro inesperado ao inesperado ao obter detalhes desse veículo");
             throw new Exception("Ocorreu um erro inesperado ao detalhar esse veículo: ", ex);
         }
     }

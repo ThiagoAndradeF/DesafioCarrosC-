@@ -19,6 +19,7 @@ public class GaragemService{
             // Logar a exceção
             // Notificar o usuário de uma forma genérica
             // Retornar um valor padrão, se aplicável
+            MessageBox.Show("Desculpe", "Problema na conexão com o banco de dados.");
             throw new Exception("Erro na transferência de dados", ex);
         }
         catch (Exception ex)
@@ -26,6 +27,7 @@ public class GaragemService{
             // Logar a exceção
             // Notificar o usuário de uma forma genérica
             // Retornar um valor padrão, se aplicável, ou relançar
+            MessageBox.Show("Desculpe", "Erro ao obter veículos.");
             throw new Exception("Erro ao obter veículos", ex);
         }
     }
