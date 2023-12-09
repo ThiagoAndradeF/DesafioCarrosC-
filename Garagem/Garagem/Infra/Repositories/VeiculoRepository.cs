@@ -1,33 +1,66 @@
 ﻿
+using AutoMapper;
+using Garagem.Data.DbContexts;
+using Garagem.Data.Entities;
+using Garagem.Infra.Profiles;
 using Garagem.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZstdSharp.Unsafe;
 
 namespace Garagem.Infra.Repositories
 {
     public class VeiculoRepository : IVeiculoRepository
     {
-        public Task<bool> AtualizarVeiculoAsync(int id, VeiculoUpdateDto atualizacoesVeiculo)
+        private readonly GaragemContext _context;
+        private readonly IMapper _mapper;
+        public VeiculoRepository(GaragemContext context, IMapper mapper){
+            _context = context;
+            _mapper = mapper;
+        }
+        public async Task<bool> AtualizarVeiculoAsync(int id, VeiculoUpdateDto atualizacoesVeiculo)
         {
-            throw new NotImplementedException();
+            var veiculoSelecionado =  await _context.Veiculos.FirstOrDefaultAsync( v => v.Id == id);
+            if(veiculoSelecionado == null) return false;
+
+            //POR QUESTÕES DE CONTEXTO, É POSSÍVEL EDITAR APENAS VALOR DE VENDA, OBSERVACOES E VALOR FIPE
+            //OS OUTROS ATRIBUTOS SÃO ESTÁTICOS
+
+            veiculoSelecionado.ValorVenda = atualizacoesVeiculo.ValorVenda ;
+            veiculoSelecionado.ValorFIPE = atualizacoesVeiculo.ValorFIPE ;
+            veiculoSelecionado.Observacoes = atualizacoesVeiculo.Observacoes;
+            
+            return await SaveChangesAsync();
         }
 
-        public Task<VeiculoDto> BuscarVeiculoPorIdAsync(int id)
+        public async Task<VeiculoDto> BuscarVeiculoPorIdAsync(int veiculoId)
         {
-            throw new NotImplementedException();
+            return _mapper.Map<VeiculoDto>(
+                await _context.Veiculos
+                    .FirstOrDefaultAsync(v => v.Id == veiculoId));
         }
 
-        public Task<bool> CriarVeiculoAsync(VeiculoCreateDto veiculo)
+        public async Task<bool> CriarVeiculoAsync(VeiculoCreateDto veiculo)
         {
-            throw new NotImplementedException();
+            await _context.Veiculos.AddAsync(_mapper.Map<Veiculo>(veiculo));
+            return await SaveChangesAsync();
         }
 
-        public Task<bool> RemoverVeiculoAsync(int id)
+        public async Task<bool> RemoverVeiculoAsync(int id)
         {
-            throw new NotImplementedException();
+            var veiculoSelecionado = await _context.Veiculos.FirstOrDefaultAsync(v => v.Id == id);
+            if(veiculoSelecionado == null) return false; 
+            _context.Veiculos.Remove(veiculoSelecionado);
+            return await SaveChangesAsync();
+        }
+
+        public async Task<bool> SaveChangesAsync()
+        {
+            return await _context.SaveChangesAsync() > 0;
         }
     }
 }

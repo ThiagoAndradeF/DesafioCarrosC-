@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "YZqCrqZWzBkwA+FjI6gF0//tI51/kVQj7dBvaL0s50bfLaqlPzaV464C2TCtuadzl0RJFbIWqy3FnP/+PdIeCw==",
+  "dgSpecHash": "XgJNlMVQyAXirOi8MweMR+FSsubXl6SYpUKtazLT01PDC0rhfby2C/HsvSjDkIlZqLqU70vQwZnnULZoQSvgjg==",
   "success": true,
   "projectFilePath": "C:\\Users\\PC\\Desktop\\PROJETO_TRABALHO\\DesafioCarrosC#\\Garagem\\Garagem\\Garagem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\dependencyinjection.autoregistration\\3.0.0\\dependencyinjection.autoregistration.3.0.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",

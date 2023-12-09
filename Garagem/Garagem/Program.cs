@@ -27,6 +27,7 @@ namespace Garagem
             services.AddDbContext<GaragemContext>(options => {
                 options.UseNpgsql("Host=localhost;Port=5432;Database=Garagem;Username=postgres;Password=3309;Include Error Detail=true");
             });
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             //services.AddDbContext<GaragemContext>();
             services.AddMemoryCache();
             services.AddTransient<IMarcaRepository, MarcaRepository>();

@@ -1,5 +1,5 @@
 namespace  Garagem.Models;
 
 public class GaragemDto{
-    public List<VeiculoDto> VeiculosDisponiveis = default!;
+    public List<VeiculoDto>? VeiculosDisponiveis = default!;
 }

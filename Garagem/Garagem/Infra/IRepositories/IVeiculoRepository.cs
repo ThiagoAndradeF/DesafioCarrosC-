@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using Garagem.Models;
 
 namespace Garagem.Infra.Repositories;
@@ -7,5 +8,7 @@ public interface IVeiculoRepository
     Task<VeiculoDto> BuscarVeiculoPorIdAsync(int id);
     Task<bool> AtualizarVeiculoAsync(int id, VeiculoUpdateDto atualizacoesVeiculo);
     Task<bool> RemoverVeiculoAsync(int id);
+    Task<bool> SaveChangesAsync();
+
 }
 
