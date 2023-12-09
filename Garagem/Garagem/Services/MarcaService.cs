@@ -20,7 +20,7 @@ public class MarcaService{
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Desculpe", "Erro ao obter as marcas.");
+            MessageBox.Show("Desculpe", "Erro ao obter as marcas.", MessageBoxButtons.OK, MessageBoxIcon.Error);
             throw new Exception("Houve um erro ao obter as marcas: ", ex);
         }
         

@@ -14,17 +14,26 @@ public class AuthenticationService
         _authRepository = authRepository;
     }
     public async Task<bool> ExecuteLoginAsync(string username, string password){
-        bool loginSuccessful = await _authRepository.SignInAsync(username, password);
-        if (loginSuccessful)
+        try
         {
-            Console.WriteLine("Login bem-sucedido.");
-            return true;
-        }
-        else
+            bool loginSuccessful = await _authRepository.SignInAsync(username, password);
+            if (loginSuccessful)
+            {
+                Console.WriteLine("Login bem-sucedido.");
+                MessageBox.Show("Login bem sucedido.", "Parabéns.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Desculpe, Credenciais não cadastradas.", "Desculpe.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+        }catch (Exception ex)
         {
-            MessageBox.Show("Desculpe, Credenciais não cadastradas.", "Credenciais não cadastradas.");
-            return false;
+            MessageBox.Show("Problelma ao comparar credenciais, error: " + ex.Message, "Desculpe.", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        
     }
 
 

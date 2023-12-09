@@ -63,11 +63,17 @@ namespace Garagem
                 {
                     bool login =await _authService.ExecuteLoginAsync(usuario, senha);
                     if (login == true) {
-                        MessageBox.Show("Boa. Login bem sucedido.", "Login bem sucedido.");
+                        //MessageBox.Show("Login bem sucedido.", "Login bem sucedido.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        txtUsuario.Text = "";
+                        txtUsuario.Focus();
+                        txtSenha.Text = "";
                     }
                 }
                 catch {
-                    MessageBox.Show("Desculpe. Erro no processo de login.", "Erro no processo de login");
+                    MessageBox.Show("Desculpe, Erro no processo de login.", "Erro no processo de login", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 
             }
