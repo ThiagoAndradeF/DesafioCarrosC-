@@ -2,6 +2,7 @@ using Garagem.Models;
 using Garagem.Infra.Repositories;
 using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
+using System.DirectoryServices.ActiveDirectory;
 
 namespace  Garagem.Services;
 
@@ -12,4 +13,16 @@ public class MarcaService{
     {
         _marcaRepository = marcaRepository;
     }
+    public async Task<List<MarcaDto>> ListarMarcasAsync(){
+        try
+        {
+            return await _marcaRepository.GetMarcasAsync();
+        }
+        catch (System.Exception ex)
+        {
+            throw new Exception("Houve um erro ao obter as marcas: ", ex);
+        }
+        
+    }   
+
 }
