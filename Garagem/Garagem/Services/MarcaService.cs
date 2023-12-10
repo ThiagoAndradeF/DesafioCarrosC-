@@ -25,5 +25,10 @@ public class MarcaService{
         }
         
     }   
+    public MarcaDto? EncontrarMarcaPorIndex(List<MarcaWithIndexListDto> lista, int id)
+    {
+        var item = lista.FirstOrDefault(m => m.id == id);
+        return item?.marca;
+    }
 
 }

@@ -1,6 +1,7 @@
 ﻿using Garagem.Infra.Repositories;
 using Garagem.Models;
 using Garagem.Services;
+using Garagem.View.Forms.NovaPasta1;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -51,7 +52,7 @@ namespace Garagem.View
                 foreach (var veiculo in veiculos)
                 {
                     int rowIndex = gridVeiculos.Rows.Add(veiculo.NomeMarca, veiculo.NomeModelo, veiculo.AnoModelo, veiculo.Id);
-                    
+
                 }
             }
         }
@@ -90,5 +91,11 @@ namespace Garagem.View
             }
         }
 
+        private void btnAddVeiculo_Click(object sender, EventArgs e)
+        {
+            var menu = _serviceProvider.GetRequiredService<CadastroVeiculo>();
+            menu.Show();
+
+        }
     }
 }

@@ -33,6 +33,7 @@
             optionCadastrar = new TabPage();
             gridVeiculos = new DataGridView();
             groupGrid = new GroupBox();
+            btnAddVeiculo = new Button();
             menuContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridVeiculos).BeginInit();
             groupGrid.SuspendLayout();
@@ -89,14 +90,26 @@
             groupGrid.Text = "Veículos Cadastrados";
             groupGrid.Enter += groupGrid_Enter;
             // 
+            // btnAddVeiculo
+            // 
+            btnAddVeiculo.Location = new Point(589, 30);
+            btnAddVeiculo.Name = "btnAddVeiculo";
+            btnAddVeiculo.Size = new Size(157, 36);
+            btnAddVeiculo.TabIndex = 3;
+            btnAddVeiculo.Text = "Adicionar";
+            btnAddVeiculo.UseVisualStyleBackColor = true;
+            btnAddVeiculo.Click += btnAddVeiculo_Click;
+            // 
             // MenuRestrito
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnAddVeiculo);
             Controls.Add(groupGrid);
             Controls.Add(menuContainer);
             Name = "MenuRestrito";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MenuRestrito";
             Load += MenuRestrito_Load;
             menuContainer.ResumeLayout(false);
@@ -112,5 +125,6 @@
         private TabPage optionCadastrar;
         private DataGridView gridVeiculos;
         private GroupBox groupGrid;
+        private Button btnAddVeiculo;
     }
 }

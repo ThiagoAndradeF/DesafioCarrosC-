@@ -1,5 +1,6 @@
 using Garagem.Infra.Repositories;
 using Garagem.Models;
+using Garagem.Models.Modelo;
 using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
 using System;
@@ -51,7 +52,10 @@ public class ModeloRepository : IModeloRepository
                 var response = await httpClient.GetAsync(requestUrl);
                 response.EnsureSuccessStatusCode();
                 var jsonResponse = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<List<ModeloDto>>(jsonResponse) ?? new List<ModeloDto>();
+
+                var responseObject = JsonConvert.DeserializeObject<ResponseModelosDto>(jsonResponse);
+
+                return responseObject?.modelos ?? new List<ModeloDto>();
             }
             catch (HttpRequestException e)
             {
@@ -68,8 +72,5 @@ public class ModeloRepository : IModeloRepository
         }
     }
 
-    Task<List<ModeloDto>> IModeloRepository.GetModelosByIdMarcaAsync(string marcaId)
-    {
-        throw new NotImplementedException();
-    }
+   
 }

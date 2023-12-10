@@ -99,6 +99,7 @@
             txtAnoModelo.Name = "txtAnoModelo";
             txtAnoModelo.Size = new Size(154, 29);
             txtAnoModelo.TabIndex = 33;
+            txtAnoModelo.TextChanged += txtAnoModelo_TextChanged;
             // 
             // txtPlaca
             // 
@@ -236,6 +237,7 @@
             comboBoxModelo.Name = "comboBoxModelo";
             comboBoxModelo.Size = new Size(164, 29);
             comboBoxModelo.TabIndex = 43;
+            comboBoxModelo.SelectedIndexChanged += comboBoxModelo_SelectedIndexChanged;
             // 
             // CadastroVeiculo
             // 
@@ -263,6 +265,7 @@
             Controls.Add(lblAnoModelo);
             Controls.Add(btnSave);
             Name = "CadastroVeiculo";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CadastroVeiculo";
             Load += CadastroVeiculo_Load;
             ResumeLayout(false);

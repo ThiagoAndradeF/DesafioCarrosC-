@@ -42,6 +42,7 @@ namespace Garagem
             services.AddTransient<Form1>();
             services.AddTransient<MenuRestrito>();
             services.AddTransient<CadastroVeiculo>();
+
         }
     }
 }
