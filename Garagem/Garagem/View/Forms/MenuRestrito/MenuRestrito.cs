@@ -64,9 +64,8 @@ namespace Garagem.View
             gridVeiculos.Columns[0].Name = "Marca";
             gridVeiculos.Columns[1].Name = "Modelo";
             gridVeiculos.Columns[2].Name = "Ano";
-            //gridVeiculos.Columns[3].Visible = false;
             DataGridViewTextBoxColumn idColumn = new DataGridViewTextBoxColumn();
-            idColumn.Name = "IdColumn";
+            idColumn.Name = "Id";
             idColumn.HeaderText = "Id";
             idColumn.Visible = false; // Oculta a coluna
             gridVeiculos.Columns.Add(idColumn);
@@ -84,7 +83,7 @@ namespace Garagem.View
         {
             if (e.ColumnIndex == gridVeiculos.Columns["btnDetalhes"].Index)
             {
-                var idVeiculo = Convert.ToInt32(gridVeiculos.Rows[e.RowIndex].Cells["IdColumn"].Value);
+                var idVeiculo = Convert.ToInt32(gridVeiculos.Rows[e.RowIndex].Cells["Id"].Value);
                 //var menu = _serviceProvider.GetRequiredService<DetalhesVeiculo>();
                 //menu.IdVeiculoSelecionado = idVeiculo;
                 //menu.Show();

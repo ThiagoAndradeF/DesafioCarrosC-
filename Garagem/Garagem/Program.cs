@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Garagem.Data.DbContexts;
 using System;
 using Garagem.View;
+using Garagem.View.Forms.NovaPasta1;
 namespace Garagem
 {
     internal static class Program
@@ -40,6 +41,7 @@ namespace Garagem
             //services.AddScoped<MenuRestrito>();
             services.AddTransient<Form1>();
             services.AddTransient<MenuRestrito>();
+            services.AddTransient<CadastroVeiculo>();
         }
     }
 }
