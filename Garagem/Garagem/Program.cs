@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Garagem.Data.DbContexts;
 using System;
+using Garagem.View;
 namespace Garagem
 {
     internal static class Program
@@ -35,7 +36,10 @@ namespace Garagem
             services.AddTransient<IVeiculoRepository, VeiculoRepository>();
             services.AddTransient<IGaragemRepository, GaragemRepository>();
             services.AddTransient<IAuthenticationRepository, AuthenticationRepository>();
-            services.AddScoped<Form1>();
+            //services.AddScoped<Form1>();
+            //services.AddScoped<MenuRestrito>();
+            services.AddTransient<Form1>();
+            services.AddTransient<MenuRestrito>();
         }
     }
 }

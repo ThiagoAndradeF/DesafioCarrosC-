@@ -1,6 +1,7 @@
 ﻿using Garagem.Infra.Repositories;
 using Garagem.Models;
 using Garagem.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,17 +15,19 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Garagem.View
 {
+
     public partial class MenuRestrito : Form
     {
         private GaragemService _garagemService;
-        public MenuRestrito(IGaragemRepository garagemRepository)
+        private IServiceProvider _serviceProvider;
+
+        public MenuRestrito(IGaragemRepository garagemRepository, IServiceProvider serviceProvider)
         {
             InitializeComponent();
-            _garagemService= new GaragemService(garagemRepository);
+            _garagemService = new GaragemService(garagemRepository);
+            _serviceProvider = serviceProvider;
             InitializeDataGridView();
-
         }
-
         private void MenuRestrito_Load(object sender, EventArgs e)
         {
 
@@ -41,14 +44,14 @@ namespace Garagem.View
         }
         private async void LoadData()
         {
-            // Supondo que você tenha uma lista de carros
             var veiculoTask = _garagemService.ListarVeiculosCadastrados();
             if (veiculoTask != null)
             {
                 IEnumerable<VeiculoDto> veiculos = await veiculoTask;
                 foreach (var veiculo in veiculos)
                 {
-                    gridVeiculos.Rows.Add(veiculo.NomeMarca, veiculo.NomeModelo, veiculo.AnoModelo);
+                    int rowIndex = gridVeiculos.Rows.Add(veiculo.NomeMarca, veiculo.NomeModelo, veiculo.AnoModelo, veiculo.Id);
+                    
                 }
             }
         }
@@ -61,8 +64,12 @@ namespace Garagem.View
             gridVeiculos.Columns[0].Name = "Marca";
             gridVeiculos.Columns[1].Name = "Modelo";
             gridVeiculos.Columns[2].Name = "Ano";
-
-
+            //gridVeiculos.Columns[3].Visible = false;
+            DataGridViewTextBoxColumn idColumn = new DataGridViewTextBoxColumn();
+            idColumn.Name = "IdColumn";
+            idColumn.HeaderText = "Id";
+            idColumn.Visible = false; // Oculta a coluna
+            gridVeiculos.Columns.Add(idColumn);
 
             // Adicionar botões
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
@@ -77,13 +84,12 @@ namespace Garagem.View
         {
             if (e.ColumnIndex == gridVeiculos.Columns["btnDetalhes"].Index)
             {
-                var marca = gridVeiculos.Rows[e.RowIndex].Cells[0].Value.ToString();
-                var modelo = gridVeiculos.Rows[e.RowIndex].Cells[1].Value.ToString();
-
-                // Abrir diálogo com detalhes
-                MessageBox.Show($"Marca: {marca}\nModelo: {modelo}", "Detalhes do Carro");
+                var idVeiculo = Convert.ToInt32(gridVeiculos.Rows[e.RowIndex].Cells["IdColumn"].Value);
+                //var menu = _serviceProvider.GetRequiredService<DetalhesVeiculo>();
+                //menu.IdVeiculoSelecionado = idVeiculo;
+                //menu.Show();
             }
-
         }
+
     }
 }

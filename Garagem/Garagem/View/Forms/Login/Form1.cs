@@ -1,19 +1,20 @@
 using Garagem.Infra.Repositories;
 using Garagem.Services;
 using Garagem.View;
+using Microsoft.Extensions.DependencyInjection;
 using System.Linq.Expressions;
 
 namespace Garagem
 {
     public partial class Form1 : Form
     {
-        private IGaragemRepository _garagemRepository;
+        private readonly IServiceProvider _serviceProvider;
         private AuthenticationService _authService;
-        public Form1(IAuthenticationRepository authRepository, IGaragemRepository garagemRepository)
+        public Form1(IAuthenticationRepository authRepository, IServiceProvider serviceProvider)
         {
             InitializeComponent();
             _authService = new AuthenticationService(authRepository);
-            _garagemRepository = garagemRepository;
+            _serviceProvider = serviceProvider;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -67,7 +68,7 @@ namespace Garagem
                     bool login = await _authService.ExecuteLoginAsync(usuario, senha);
                     if (login == true)
                     {
-                        var menu = new MenuRestrito(_garagemRepository);
+                        var menu = _serviceProvider.GetRequiredService<MenuRestrito>();
                         menu.Show();
                         this.Visible = false;
                     }
@@ -78,15 +79,15 @@ namespace Garagem
                         txtSenha.Text = "";
                     }
                 }
-                catch
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Desculpe, Erro no processo de login.", "Erro no processo de login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Desculpe, Erro no processo de login."  + ex.Message, "Erro no processo de login", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
             }
             else
             {
-                MessageBox.Show("Desculpe.", "Usuário ou senha nulos");
+                MessageBox.Show("Desculpe.", "Usuï¿½rio ou senha nulos");
             }
 
         }
