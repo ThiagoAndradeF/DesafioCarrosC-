@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Garagem.Migrations
 {
     [DbContext(typeof(GaragemContext))]
-    [Migration("20231208225213_as")]
-    partial class @as
+    [Migration("20231209232004_garagemMigration")]
+    partial class garagemMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,6 +53,16 @@ namespace Garagem.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("character varying(15)");
 
+                    b.Property<string>("NomeMarca")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("character varying(15)");
+
+                    b.Property<string>("NomeModelo")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("character varying(15)");
+
                     b.Property<string>("Observacoes")
                         .IsRequired()
                         .HasMaxLength(500)
@@ -72,6 +82,38 @@ namespace Garagem.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Veiculos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AnoFabricacao = 2020,
+                            AnoModelo = 2021,
+                            Chassi = "9BWZZZ377VT004251",
+                            IdMarca = "Marca1",
+                            IdModelo = "Modelo1",
+                            NomeMarca = "CarMaker",
+                            NomeModelo = "Sedan Lux",
+                            Observacoes = "Veículo em excelente estado, único dono.",
+                            Placa = "ABC1234",
+                            ValorFIPE = 80000.00m,
+                            ValorVenda = 85000.00m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AnoFabricacao = 2019,
+                            AnoModelo = 2020,
+                            Chassi = "3VWFE21C04M000001",
+                            IdMarca = "Marca2",
+                            IdModelo = "Modelo2",
+                            NomeMarca = "Speedster",
+                            NomeModelo = "Coupe Sport",
+                            Observacoes = "Veículo esportivo em ótimo estado, revisões em dia.",
+                            Placa = "XYZ9876",
+                            ValorFIPE = 75000.00m,
+                            ValorVenda = 80000.00m
+                        });
                 });
 #pragma warning restore 612, 618
         }

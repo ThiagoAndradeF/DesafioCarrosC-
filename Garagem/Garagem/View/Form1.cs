@@ -1,16 +1,19 @@
 using Garagem.Infra.Repositories;
 using Garagem.Services;
+using Garagem.View;
 using System.Linq.Expressions;
 
 namespace Garagem
 {
     public partial class Form1 : Form
     {
-        public AuthenticationService _authService; 
-        public Form1(IAuthenticationRepository authRepository)
+        private IGaragemRepository _garagemRepository;
+        private AuthenticationService _authService;
+        public Form1(IAuthenticationRepository authRepository, IGaragemRepository garagemRepository)
         {
             InitializeComponent();
             _authService = new AuthenticationService(authRepository);
+            _garagemRepository = garagemRepository;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,15 +58,18 @@ namespace Garagem
 
         private async void btnEntrar_Click(object sender, EventArgs e)
         {
-            if(txtUsuario.Text.Length > 0 && txtSenha.Text.Length>0)
+            if (txtUsuario.Text.Length > 0 && txtSenha.Text.Length > 0)
             {
                 string? usuario = txtUsuario.Text.ToString();
                 string? senha = txtSenha.Text.ToString();
                 try
                 {
-                    bool login =await _authService.ExecuteLoginAsync(usuario, senha);
-                    if (login == true) {
-                        //MessageBox.Show("Login bem sucedido.", "Login bem sucedido.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    bool login = await _authService.ExecuteLoginAsync(usuario, senha);
+                    if (login == true)
+                    {
+                        var menu = new MenuRestrito(_garagemRepository);
+                        menu.Show();
+                        this.Visible = false;
                     }
                     else
                     {
@@ -72,16 +78,22 @@ namespace Garagem
                         txtSenha.Text = "";
                     }
                 }
-                catch {
+                catch
+                {
                     MessageBox.Show("Desculpe, Erro no processo de login.", "Erro no processo de login", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                
+
             }
             else
             {
                 MessageBox.Show("Desculpe.", "Usuário ou senha nulos");
             }
-            
+
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

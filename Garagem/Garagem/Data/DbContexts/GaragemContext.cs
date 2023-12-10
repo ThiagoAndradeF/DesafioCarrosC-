@@ -53,7 +53,46 @@ namespace Garagem.Data.DbContexts
                 entity.Property(e => e.IdModelo)
                     .IsRequired()
                     .HasMaxLength(15); 
+                entity.Property(e => e.NomeModelo)
+                    .IsRequired()
+                    .HasMaxLength(15); 
+
+                entity.Property(e => e.NomeMarca)
+                    .IsRequired()
+                    .HasMaxLength(15); 
             });
+            modelBuilder.Entity<Veiculo>().HasData(
+                new Veiculo
+                {
+                    Id = 1, // ID único
+                    Placa = "ABC1234",
+                    Chassi = "9BWZZZ377VT004251",
+                    AnoFabricacao = 2020,
+                    AnoModelo = 2021,
+                    ValorFIPE = 80000.00m,
+                    ValorVenda = 85000.00m,
+                    Observacoes = "Veículo em excelente estado, único dono.",
+                    IdMarca = "Marca1",
+                    IdModelo = "Modelo1",
+                    NomeModelo = "Sedan Lux",
+                    NomeMarca = "CarMaker"
+                },
+                new Veiculo
+                {
+                    Id = 2, // ID único
+                    Placa = "XYZ9876",
+                    Chassi = "3VWFE21C04M000001",
+                    AnoFabricacao = 2019,
+                    AnoModelo = 2020,
+                    ValorFIPE = 75000.00m,
+                    ValorVenda = 80000.00m,
+                    Observacoes = "Veículo esportivo em ótimo estado, revisões em dia.",
+                    IdMarca = "Marca2",
+                    IdModelo = "Modelo2",
+                    NomeModelo = "Coupe Sport",
+                    NomeMarca = "Speedster"
+                }
+            );
             base.OnModelCreating(modelBuilder);
         }
         

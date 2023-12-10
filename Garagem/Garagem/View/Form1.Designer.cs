@@ -83,6 +83,7 @@
             txtSenha.Font = new Font("Segoe UI", 12F);
             txtSenha.Location = new Point(12, 123);
             txtSenha.Name = "txtSenha";
+            txtSenha.PlaceholderText = "Digite sua senha";
             txtSenha.Size = new Size(410, 29);
             txtSenha.TabIndex = 5;
             txtSenha.UseSystemPasswordChar = true;
@@ -93,8 +94,10 @@
             txtUsuario.Font = new Font("Segoe UI", 12F);
             txtUsuario.Location = new Point(12, 51);
             txtUsuario.Name = "txtUsuario";
+            txtUsuario.PlaceholderText = "DIgite seu usuário";
             txtUsuario.Size = new Size(410, 29);
             txtUsuario.TabIndex = 4;
+            txtUsuario.TextChanged += txtUsuario_TextChanged;
             // 
             // labelUsuario
             // 

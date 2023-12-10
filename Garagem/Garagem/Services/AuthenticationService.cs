@@ -32,6 +32,7 @@ public class AuthenticationService
         }catch (Exception ex)
         {
             MessageBox.Show("Problelma ao comparar credenciais, error: " + ex.Message, "Desculpe.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            throw new Exception("Exception: " + ex);
         }
         
     }

@@ -14,5 +14,7 @@ namespace Garagem.Data.Entities
         public string Observacoes { get; set; } = string.Empty;
         public string IdMarca { get; set; } = string.Empty;
         public string IdModelo { get; set; }= string.Empty;
+        public string NomeModelo { get; set; }= string.Empty;
+        public string NomeMarca { get; set; }= string.Empty;
     }
 }
