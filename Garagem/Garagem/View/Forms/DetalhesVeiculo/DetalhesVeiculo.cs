@@ -20,7 +20,7 @@ namespace Garagem.View
         VeiculoService _veiculoService;
         private int _idVeiculoSelecionado;
         private IServiceProvider _serviceProvider;
-        public int idVeiculoSelecionado;
+        private VeiculoDto? _veiculoBackup;
         public DetalhesVeiculo(int idVeiculo, IVeiculoRepository veiculoRepository, IServiceProvider serviceProvider)
         {
             InitializeComponent();
@@ -28,6 +28,7 @@ namespace Garagem.View
             _serviceProvider = serviceProvider;
             _idVeiculoSelecionado = idVeiculo;
             LoadData();
+            
         }
         private void SetTextBoxesReadOnly(Control parent)
         {
@@ -39,30 +40,34 @@ namespace Garagem.View
                 }
                 else if (c.HasChildren)
                 {
-                    SetTextBoxesReadOnly(c); // Chama recursivamente para controles filhos
+                    SetTextBoxesReadOnly(c); 
                 }
             }
         }
-        private void PopularTextBoxesComValor(Control parent, string valor)
+        private void SetTextBoxesEditable(Control parent)
         {
             foreach (Control c in parent.Controls)
             {
                 if (c is TextBox txtBox)
                 {
-                    txtBox.Text = valor;
+                    txtBox.ReadOnly = false;
                 }
                 else if (c.HasChildren)
                 {
-                    PopularTextBoxesComValor(c, valor); // Chama recursivamente para controles filhos
+                    SetTextBoxesEditable(c); // Chamada recursiva para controles filhos
                 }
             }
         }
-        private async void LoadData()
+        private async void LoadData(VeiculoDto? veiculoBackup = null)
         {
+            VeiculoDto veiculoSelecionado;
             var veiculoTask = _veiculoService.DetalhesVeiculoAsync(_idVeiculoSelecionado);
             if (veiculoTask != null)
             {
-                VeiculoDto veiculoSelecionado = await veiculoTask;
+                if(veiculoBackup == null){
+                    veiculoSelecionado = await veiculoTask;
+                }
+                else veiculoSelecionado = veiculoBackup;
                 txtMarca.Text = veiculoSelecionado.NomeMarca;
                 txtAnoFabricacao.Text = veiculoSelecionado?.AnoFabricacao.ToString();
                 txtAnoModelo.Text = veiculoSelecionado?.AnoModelo.ToString();
@@ -72,10 +77,12 @@ namespace Garagem.View
                 txtObs.Text = veiculoSelecionado?.Observacoes.ToString();
                 txtPlaca.Text = veiculoSelecionado?.Placa.ToString();
                 txtVenda.Text = veiculoSelecionado?.ValorVenda.ToString();
-
+                _veiculoBackup = veiculoSelecionado;
             }
-            SetTextBoxesReadOnly(this);
+
+            estadoFormularioDefault();
         }
+        
 
         private void txtModelo_TextChanged(object sender, EventArgs e)
         {
@@ -87,23 +94,64 @@ namespace Garagem.View
 
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void voltarParaMenuRestrito()
         {
             var menuRestrito = _serviceProvider.GetRequiredService<MenuRestrito>();
             menuRestrito.Show();
             this.Close();
 
         }
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            voltarParaMenuRestrito();
+
+        }
+        private void estadoFormularioDefault()
+        {
+            deleteButton.Visible = true;
+            editButton.Visible = true;
+            backButton.Visible = true;
+            saveButton.Visible = false;
+            cancelButton.Visible = false;
+            SetTextBoxesReadOnly(this);
+        }
+        private void estadoFormularioEdit()
+        {
+            deleteButton.Visible = false;
+            editButton.Visible = false;
+            backButton.Visible = false;
+            saveButton.Visible = true;
+            cancelButton.Visible = true;
+            SetTextBoxesEditable(this);
+            txtMarca.ReadOnly = true;
+            txtModelo.ReadOnly = true;
+            txtAnoModelo.ReadOnly = true;
+            txtAnoFabricacao.ReadOnly = true;
+            txtChassi.ReadOnly = true;
+        }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-
+            estadoFormularioEdit();
         }
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
-            
+
             await _veiculoService.ExcluirVeiculoAsync(_idVeiculoSelecionado);
+            voltarParaMenuRestrito();
+
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            estadoFormularioDefault();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            estadoFormularioDefault();
+            LoadData(_veiculoBackup);
         }
     }
 } 

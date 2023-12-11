@@ -20,12 +20,12 @@ public class AuthenticationService
             if (loginSuccessful)
             {
                 Console.WriteLine("Login bem-sucedido.");
-                MessageBox.Show("Login bem sucedido.", "Parabéns.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // MessageBox.Show("Login bem sucedido.", "Parabï¿½ns.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
             }
             else
             {
-                MessageBox.Show("Desculpe, Credenciais não cadastradas.", "Desculpe.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Desculpe, Credenciais nï¿½o cadastradas.", "Desculpe.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 

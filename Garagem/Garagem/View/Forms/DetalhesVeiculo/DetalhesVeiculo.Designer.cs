@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnEdit = new Button();
-            btnDelete = new Button();
+            editButton = new Button();
+            deleteButton = new Button();
             backButton = new Button();
             lblMarca = new Label();
             label2 = new Label();
@@ -50,34 +50,41 @@
             lblAnoModelo = new Label();
             txtModelo = new TextBox();
             txtMarca = new TextBox();
+            saveButton = new Button();
+            cancelButton = new Button();
             SuspendLayout();
             // 
-            // btnEdit
+            // editButton
             // 
-            btnEdit.ForeColor = Color.Gold;
-            btnEdit.Location = new Point(658, 111);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(106, 45);
-            btnEdit.TabIndex = 0;
-            btnEdit.Text = "Editar";
-            btnEdit.UseVisualStyleBackColor = true;
-            btnEdit.Click += btnEdit_Click;
+            editButton.AccessibleName = "editButton";
+            editButton.Cursor = Cursors.Hand;
+            editButton.ForeColor = Color.Gold;
+            editButton.Location = new Point(658, 111);
+            editButton.Name = "editButton";
+            editButton.Size = new Size(106, 45);
+            editButton.TabIndex = 0;
+            editButton.Text = "Editar";
+            editButton.UseVisualStyleBackColor = true;
+            editButton.Click += btnEdit_Click;
             // 
-            // btnDelete
+            // deleteButton
             // 
-            btnDelete.ForeColor = Color.Crimson;
-            btnDelete.Location = new Point(658, 39);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(106, 50);
-            btnDelete.TabIndex = 1;
-            btnDelete.Text = "Excluir";
-            btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Click += btnDelete_Click;
+            deleteButton.AccessibleName = "deleteButton";
+            deleteButton.Cursor = Cursors.Hand;
+            deleteButton.ForeColor = Color.Crimson;
+            deleteButton.Location = new Point(658, 39);
+            deleteButton.Name = "deleteButton";
+            deleteButton.Size = new Size(106, 50);
+            deleteButton.TabIndex = 1;
+            deleteButton.Text = "Excluir";
+            deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += btnDelete_Click;
             // 
             // backButton
             // 
             backButton.AccessibleDescription = "";
             backButton.AccessibleName = "backButton";
+            backButton.Cursor = Cursors.Hand;
             backButton.Location = new Point(658, 180);
             backButton.Name = "backButton";
             backButton.Size = new Size(106, 47);
@@ -251,11 +258,43 @@
             txtMarca.Size = new Size(154, 29);
             txtMarca.TabIndex = 68;
             // 
+            // saveButton
+            // 
+            saveButton.AccessibleName = "saveButton";
+            saveButton.BackColor = Color.Transparent;
+            saveButton.Cursor = Cursors.Hand;
+            saveButton.Font = new Font("Segoe UI", 12F);
+            saveButton.ForeColor = Color.Lime;
+            saveButton.Location = new Point(610, 252);
+            saveButton.Name = "saveButton";
+            saveButton.Size = new Size(154, 50);
+            saveButton.TabIndex = 69;
+            saveButton.Text = "Salvar";
+            saveButton.UseVisualStyleBackColor = false;
+            saveButton.Click += saveButton_Click;
+            // 
+            // cancelButton
+            // 
+            cancelButton.AccessibleName = "cancelButton";
+            cancelButton.BackColor = Color.Transparent;
+            cancelButton.Cursor = Cursors.Hand;
+            cancelButton.Font = new Font("Segoe UI", 12F);
+            cancelButton.ForeColor = Color.Red;
+            cancelButton.Location = new Point(412, 252);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(154, 50);
+            cancelButton.TabIndex = 70;
+            cancelButton.Text = "Cancelar";
+            cancelButton.UseVisualStyleBackColor = false;
+            cancelButton.Click += cancelButton_Click;
+            // 
             // DetalhesVeiculo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(cancelButton);
+            Controls.Add(saveButton);
             Controls.Add(txtMarca);
             Controls.Add(txtModelo);
             Controls.Add(backButton);
@@ -276,8 +315,8 @@
             Controls.Add(label4);
             Controls.Add(lblPlaca);
             Controls.Add(lblAnoModelo);
-            Controls.Add(btnDelete);
-            Controls.Add(btnEdit);
+            Controls.Add(deleteButton);
+            Controls.Add(editButton);
             Name = "DetalhesVeiculo";
             Text = "DetalhesVeiculo";
             TopMost = true;
@@ -288,8 +327,8 @@
 
         #endregion
 
-        private Button btnEdit;
-        private Button btnDelete;
+        private Button editButton;
+        private Button deleteButton;
         private Label lblPlaca;
         private Label lblAnoModelo;
         private Label lblMarca;
@@ -310,5 +349,7 @@
         private Label label2;
         private TextBox txtModelo;
         private TextBox txtMarca;
+        private Button saveButton;
+        private Button cancelButton;
     }
 }

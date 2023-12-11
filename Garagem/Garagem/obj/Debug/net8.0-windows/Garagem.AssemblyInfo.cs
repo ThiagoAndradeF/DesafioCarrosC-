@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Garagem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f75fe205dea287df73990b767ad8121210dd911a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e837338a210da8660ae4a3f63fa7edc1c58e002")]
 [assembly: System.Reflection.AssemblyProductAttribute("Garagem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Garagem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

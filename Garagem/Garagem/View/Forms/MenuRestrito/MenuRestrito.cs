@@ -93,6 +93,7 @@ namespace Garagem.View
                 // Cria uma instância de DetalhesVeiculo usando a fábrica
                 var detalhesVeiculo = detalhesVeiculoFactory.Create(idVeiculo);
                 detalhesVeiculo.Show();
+                this.Close();
 
             }
         }
