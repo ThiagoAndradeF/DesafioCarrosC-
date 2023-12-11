@@ -6,11 +6,10 @@ namespace Garagem.Data.DbContexts
 {
     public class GaragemContext : DbContext
     {   
-        
+        private string _connectionString = AppConfig.GetConnectionString();
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
             if(!optionsBuilder.IsConfigured){
-                var conexaoString = "Host=localhost;Port=5432;Database=Garagem;Username=postgres;Password=3309;Include Error Detail=true";
-                optionsBuilder.UseNpgsql(conexaoString);
+                optionsBuilder.UseNpgsql(_connectionString);
             } 
         }
         public DbSet<Veiculo> Veiculos { get; set; }

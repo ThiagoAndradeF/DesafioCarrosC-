@@ -27,7 +27,8 @@ namespace Garagem
             //    options.UseMySql("server=localhost;port=3306;initial catalog=Veiculos;uid=root;pwd=1234;",
             //        ServerVersion.Parse("8.0.34-mysql")));
             services.AddDbContext<GaragemContext>(options => {
-                options.UseNpgsql("Host=localhost;Port=5432;Database=Garagem;Username=postgres;Password=3309;Include Error Detail=true");
+                var connectionString = AppConfig.GetConnectionString();
+                options.UseNpgsql(connectionString);
             });
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             //services.AddDbContext<GaragemContext>();

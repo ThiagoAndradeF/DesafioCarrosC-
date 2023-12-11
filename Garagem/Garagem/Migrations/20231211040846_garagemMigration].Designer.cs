@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Garagem.Migrations
 {
     [DbContext(typeof(GaragemContext))]
-    [Migration("20231211005925_garagemMigration")]
+    [Migration("20231211040846_garagemMigration]")]
     partial class garagemMigration
     {
         /// <inheritdoc />
