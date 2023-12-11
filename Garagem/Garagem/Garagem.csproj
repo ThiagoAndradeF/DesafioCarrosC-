@@ -10,11 +10,8 @@
 
   <ItemGroup>
     <Compile Remove="Data\Repository\**" />
-    <Compile Remove="View\Forms\NovaPasta\**" />
     <EmbeddedResource Remove="Data\Repository\**" />
-    <EmbeddedResource Remove="View\Forms\NovaPasta\**" />
     <None Remove="Data\Repository\**" />
-    <None Remove="View\Forms\NovaPasta\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -64,6 +61,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="View\Forms\NovaPasta\" />
     <Folder Include="View\NovaPasta\" />
   </ItemGroup>
 

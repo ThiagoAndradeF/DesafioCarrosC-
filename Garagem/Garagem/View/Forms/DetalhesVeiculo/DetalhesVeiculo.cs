@@ -28,7 +28,7 @@ namespace Garagem.View
             _serviceProvider = serviceProvider;
             _idVeiculoSelecionado = idVeiculo;
             LoadData();
-            
+
         }
         private void SetTextBoxesReadOnly(Control parent)
         {
@@ -40,7 +40,7 @@ namespace Garagem.View
                 }
                 else if (c.HasChildren)
                 {
-                    SetTextBoxesReadOnly(c); 
+                    SetTextBoxesReadOnly(c);
                 }
             }
         }
@@ -64,7 +64,8 @@ namespace Garagem.View
             var veiculoTask = _veiculoService.DetalhesVeiculoAsync(_idVeiculoSelecionado);
             if (veiculoTask != null)
             {
-                if(veiculoBackup == null){
+                if (veiculoBackup == null)
+                {
                     veiculoSelecionado = await veiculoTask;
                 }
                 else veiculoSelecionado = veiculoBackup;
@@ -82,7 +83,7 @@ namespace Garagem.View
 
             estadoFormularioDefault();
         }
-        
+
 
         private void txtModelo_TextChanged(object sender, EventArgs e)
         {
@@ -130,12 +131,13 @@ namespace Garagem.View
             txtPlaca.ReadOnly = true;
             txtChassi.ReadOnly = true;
         }
-        
+
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            
+
             estadoFormularioEdit();
         }
+        
 
         private async void btnDelete_Click(object sender, EventArgs e)
         {
@@ -148,17 +150,32 @@ namespace Garagem.View
         private void saveButton_Click(object sender, EventArgs e)
         {
             VeiculoUpdateDto valoresVeiculoAtualizados = new VeiculoUpdateDto();
-            valoresVeiculoAtualizados.ValorVenda = Convert.ToDecimal(txtVenda.Text);
-            valoresVeiculoAtualizados.ValorFIPE = Convert.ToDecimal(txtFipe.Text);
-            valoresVeiculoAtualizados.Observacoes = txtObs.Text;
-            _veiculoService.EditarVeiculoAsync(_idVeiculoSelecionado,valoresVeiculoAtualizados);
-            estadoFormularioDefault();
+            try
+            {
+                valoresVeiculoAtualizados.ValorVenda = Convert.ToDecimal(txtVenda.Text);
+                valoresVeiculoAtualizados.ValorFIPE = Convert.ToDecimal(txtFipe.Text);
+                valoresVeiculoAtualizados.Observacoes = txtObs.Text;
+                _veiculoService.EditarVeiculoAsync(_idVeiculoSelecionado, valoresVeiculoAtualizados);
+                estadoFormularioDefault();
+            }           
+            catch (Exception ex) {
+
+
+                MessageBox.Show( "Preencha os campos de valor com valores possíveis de ser convertidos para deciamal!", "Desculpe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+            
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             estadoFormularioDefault();
             LoadData(_veiculoBackup);
+        }
+
+        private void txtFipe_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 } 

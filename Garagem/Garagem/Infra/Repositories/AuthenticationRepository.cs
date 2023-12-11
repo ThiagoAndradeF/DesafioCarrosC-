@@ -30,17 +30,15 @@ namespace Garagem.Infra.Repositories
                         var jsonResponse = await response.Content.ReadAsStringAsync();
                         var loginResponse = JsonConvert.DeserializeObject<LoginResponseDto>(jsonResponse);
 
-                        // Se o login não retornar erro e um token for recebido, considere como sucesso
                         return !loginResponse.Error && !string.IsNullOrWhiteSpace(loginResponse.user.token);
                     }
                     else
                     {
-                        return false; // Resposta não bem-sucedida
+                        return false; 
                     }
                 }
                 catch
                 {
-                    // Trate os erros de conexão, etc.
                     return false;
                 }
             }

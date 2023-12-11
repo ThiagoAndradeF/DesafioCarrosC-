@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             txtObs = new TextBox();
-            txtVenda = new TextBox();
-            txtFipe = new TextBox();
-            txtChassi = new TextBox();
-            txtAnoFabricacao = new TextBox();
-            txtAnoModelo = new TextBox();
-            txtPlaca = new TextBox();
             lblChassi = new Label();
             lblFipe = new Label();
             lblModelo = new Label();
@@ -50,6 +44,13 @@
             comboBoxModelo = new ComboBox();
             SaveButton = new Button();
             backButton = new Button();
+            txtAnoModelo = new MaskedTextBox();
+            txtPlaca = new MaskedTextBox();
+            txtAnoFabricacao = new MaskedTextBox();
+            chassiTxt = new MaskedTextBox();
+            txtVenda = new TextBox();
+            textoVenda = new TextBox();
+            textoFipe = new TextBox();
             SuspendLayout();
             // 
             // txtObs
@@ -60,54 +61,6 @@
             txtObs.ShortcutsEnabled = false;
             txtObs.Size = new Size(765, 100);
             txtObs.TabIndex = 38;
-            // 
-            // txtVenda
-            // 
-            txtVenda.Font = new Font("Segoe UI", 12F);
-            txtVenda.Location = new Point(18, 194);
-            txtVenda.Name = "txtVenda";
-            txtVenda.Size = new Size(164, 29);
-            txtVenda.TabIndex = 37;
-            // 
-            // txtFipe
-            // 
-            txtFipe.Font = new Font("Segoe UI", 12F);
-            txtFipe.Location = new Point(202, 194);
-            txtFipe.Name = "txtFipe";
-            txtFipe.Size = new Size(176, 29);
-            txtFipe.TabIndex = 36;
-            // 
-            // txtChassi
-            // 
-            txtChassi.Font = new Font("Segoe UI", 12F);
-            txtChassi.Location = new Point(400, 115);
-            txtChassi.Name = "txtChassi";
-            txtChassi.Size = new Size(154, 29);
-            txtChassi.TabIndex = 35;
-            // 
-            // txtAnoFabricacao
-            // 
-            txtAnoFabricacao.Font = new Font("Segoe UI", 12F);
-            txtAnoFabricacao.Location = new Point(202, 115);
-            txtAnoFabricacao.Name = "txtAnoFabricacao";
-            txtAnoFabricacao.Size = new Size(176, 29);
-            txtAnoFabricacao.TabIndex = 34;
-            // 
-            // txtAnoModelo
-            // 
-            txtAnoModelo.Font = new Font("Segoe UI", 12F);
-            txtAnoModelo.Location = new Point(400, 39);
-            txtAnoModelo.Name = "txtAnoModelo";
-            txtAnoModelo.Size = new Size(154, 29);
-            txtAnoModelo.TabIndex = 33;
-            // 
-            // txtPlaca
-            // 
-            txtPlaca.Font = new Font("Segoe UI", 12F);
-            txtPlaca.Location = new Point(18, 115);
-            txtPlaca.Name = "txtPlaca";
-            txtPlaca.Size = new Size(164, 29);
-            txtPlaca.TabIndex = 30;
             // 
             // lblChassi
             // 
@@ -123,9 +76,9 @@
             lblFipe.AutoSize = true;
             lblFipe.Location = new Point(202, 176);
             lblFipe.Name = "lblFipe";
-            lblFipe.Size = new Size(29, 15);
+            lblFipe.Size = new Size(50, 15);
             lblFipe.TabIndex = 28;
-            lblFipe.Text = "FIPE";
+            lblFipe.Text = "FIPE(R$)";
             // 
             // lblModelo
             // 
@@ -150,9 +103,9 @@
             lblValorVenda.AutoSize = true;
             lblValorVenda.Location = new Point(18, 176);
             lblValorVenda.Name = "lblValorVenda";
-            lblValorVenda.Size = new Size(68, 15);
+            lblValorVenda.Size = new Size(89, 15);
             lblValorVenda.TabIndex = 25;
-            lblValorVenda.Text = "Valor Venda";
+            lblValorVenda.Text = "Valor Venda(R$)";
             // 
             // label4
             // 
@@ -228,9 +181,9 @@
             // SaveButton
             // 
             SaveButton.AccessibleName = "saveButton";
-            SaveButton.Location = new Point(624, 176);
+            SaveButton.Location = new Point(624, 129);
             SaveButton.Name = "SaveButton";
-            SaveButton.Size = new Size(143, 80);
+            SaveButton.Size = new Size(143, 62);
             SaveButton.TabIndex = 44;
             SaveButton.Text = "Salvar";
             SaveButton.UseVisualStyleBackColor = true;
@@ -240,7 +193,7 @@
             // 
             backButton.AccessibleDescription = "";
             backButton.AccessibleName = "backButton";
-            backButton.Location = new Point(624, 24);
+            backButton.Location = new Point(624, 21);
             backButton.Name = "backButton";
             backButton.Size = new Size(143, 61);
             backButton.TabIndex = 45;
@@ -248,11 +201,79 @@
             backButton.UseVisualStyleBackColor = true;
             backButton.Click += backButton_Click;
             // 
+            // txtAnoModelo
+            // 
+            txtAnoModelo.AccessibleName = "txtAnoModelo";
+            txtAnoModelo.Font = new Font("Segoe UI", 12F);
+            txtAnoModelo.Location = new Point(400, 39);
+            txtAnoModelo.Name = "txtAnoModelo";
+            txtAnoModelo.Size = new Size(154, 29);
+            txtAnoModelo.TabIndex = 46;
+            // 
+            // txtPlaca
+            // 
+            txtPlaca.AccessibleName = "txtPlaca";
+            txtPlaca.Font = new Font("Segoe UI", 12F);
+            txtPlaca.Location = new Point(18, 115);
+            txtPlaca.Name = "txtPlaca";
+            txtPlaca.Size = new Size(154, 29);
+            txtPlaca.TabIndex = 48;
+            // 
+            // txtAnoFabricacao
+            // 
+            txtAnoFabricacao.AccessibleName = "txtAnoFabricacao";
+            txtAnoFabricacao.Font = new Font("Segoe UI", 12F);
+            txtAnoFabricacao.Location = new Point(202, 115);
+            txtAnoFabricacao.Name = "txtAnoFabricacao";
+            txtAnoFabricacao.Size = new Size(154, 29);
+            txtAnoFabricacao.TabIndex = 49;
+            // 
+            // chassiTxt
+            // 
+            chassiTxt.AccessibleDescription = "chassiTxt";
+            chassiTxt.Font = new Font("Segoe UI", 12F);
+            chassiTxt.Location = new Point(400, 115);
+            chassiTxt.Name = "chassiTxt";
+            chassiTxt.Size = new Size(148, 29);
+            chassiTxt.TabIndex = 51;
+            // 
+            // txtVenda
+            // 
+            txtVenda.Location = new Point(0, 0);
+            txtVenda.Name = "txtVenda";
+            txtVenda.Size = new Size(100, 23);
+            txtVenda.TabIndex = 0;
+            // 
+            // textoVenda
+            // 
+            textoVenda.AccessibleDescription = "textoVenda";
+            textoVenda.Font = new Font("Segoe UI", 12F);
+            textoVenda.Location = new Point(18, 198);
+            textoVenda.Name = "textoVenda";
+            textoVenda.Size = new Size(154, 29);
+            textoVenda.TabIndex = 52;
+            // 
+            // textoFipe
+            // 
+            textoFipe.AccessibleDescription = "textoFipe";
+            textoFipe.Font = new Font("Segoe UI", 12F);
+            textoFipe.Location = new Point(202, 198);
+            textoFipe.Name = "textoFipe";
+            textoFipe.Size = new Size(154, 29);
+            textoFipe.TabIndex = 53;
+            textoFipe.TextChanged += textoVendo_TextChanged;
+            // 
             // CadastroVeiculo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(textoFipe);
+            Controls.Add(textoVenda);
+            Controls.Add(chassiTxt);
+            Controls.Add(txtAnoFabricacao);
+            Controls.Add(txtPlaca);
+            Controls.Add(txtAnoModelo);
             Controls.Add(backButton);
             Controls.Add(SaveButton);
             Controls.Add(comboBoxModelo);
@@ -260,12 +281,6 @@
             Controls.Add(lblMarca);
             Controls.Add(label2);
             Controls.Add(txtObs);
-            Controls.Add(txtVenda);
-            Controls.Add(txtFipe);
-            Controls.Add(txtChassi);
-            Controls.Add(txtAnoFabricacao);
-            Controls.Add(txtAnoModelo);
-            Controls.Add(txtPlaca);
             Controls.Add(lblChassi);
             Controls.Add(lblFipe);
             Controls.Add(lblModelo);
@@ -285,12 +300,6 @@
         #endregion
 
         private TextBox txtObs;
-        private TextBox txtVenda;
-        private TextBox txtFipe;
-        private TextBox txtChassi;
-        private TextBox txtAnoFabricacao;
-        private TextBox txtAnoModelo;
-        private TextBox txtPlaca;
         private Label lblChassi;
         private Label lblFipe;
         private Label lblModelo;
@@ -306,5 +315,17 @@
         private ComboBox comboBoxModelo;
         private Button SaveButton;
         private Button backButton;
+        private MaskedTextBox txtAnoModelo;
+        private MaskedTextBox txtPlaca;
+        private MaskedTextBox txtAnoFabricacao;
+        private MaskedTextBox txtChassi;
+        private MaskedTextBox vendaTxt;
+        private MaskedTextBox chassiTxt;
+        private TextBox textBox1;
+        //private TextBox vendaTxt;
+        private TextBox txtVenda;
+        private TextBox txtFipe;
+        private TextBox textoVenda;
+        private TextBox textoFipe;
     }
 }

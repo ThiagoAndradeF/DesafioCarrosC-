@@ -134,6 +134,7 @@
             txtFipe.Name = "txtFipe";
             txtFipe.Size = new Size(176, 29);
             txtFipe.TabIndex = 58;
+            txtFipe.TextChanged += txtFipe_TextChanged;
             // 
             // txtChassi
             // 
