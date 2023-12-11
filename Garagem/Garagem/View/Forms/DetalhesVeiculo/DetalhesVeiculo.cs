@@ -127,11 +127,13 @@ namespace Garagem.View
             txtModelo.ReadOnly = true;
             txtAnoModelo.ReadOnly = true;
             txtAnoFabricacao.ReadOnly = true;
+            txtPlaca.ReadOnly = true;
             txtChassi.ReadOnly = true;
         }
-
+        
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            
             estadoFormularioEdit();
         }
 
@@ -145,6 +147,11 @@ namespace Garagem.View
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            VeiculoUpdateDto valoresVeiculoAtualizados = new VeiculoUpdateDto();
+            valoresVeiculoAtualizados.ValorVenda = Convert.ToDecimal(txtVenda.Text);
+            valoresVeiculoAtualizados.ValorFIPE = Convert.ToDecimal(txtFipe.Text);
+            valoresVeiculoAtualizados.Observacoes = txtObs.Text;
+            _veiculoService.EditarVeiculoAsync(_idVeiculoSelecionado,valoresVeiculoAtualizados);
             estadoFormularioDefault();
         }
 

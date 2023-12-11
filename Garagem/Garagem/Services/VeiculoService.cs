@@ -23,7 +23,9 @@ public class VeiculoService {
     {
         try
         {
-            return await _veiculoRepository.AtualizarVeiculoAsync(idVeiculo , atualizacoesVeiculo);
+            var atualizacaoVeiculo = await _veiculoRepository.AtualizarVeiculoAsync(idVeiculo , atualizacoesVeiculo);
+            MessageBox.Show( "Veiculo atualizado com sucesso", "Desculpe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return atualizacaoVeiculo;
         }
         catch (Exception ex)
         {
