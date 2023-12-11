@@ -21,7 +21,7 @@ namespace Garagem.Infra.Repositories
             _cache = cache;
             _cacheOptions = new MemoryCacheEntryOptions
             {
-                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30)
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
             };
         }
         public async Task<List<MarcaDto>> GetMarcasAsync()
