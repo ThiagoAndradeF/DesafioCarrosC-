@@ -4,7 +4,6 @@ using Garagem.Data.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
@@ -18,53 +17,49 @@ namespace Garagem.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.0")
-                .HasAnnotation("Relational:MaxIdentifierLength", 63);
-
-            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Garagem.Data.Entities.Veiculo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("int");
 
                     b.Property<int?>("AnoFabricacao")
                         .IsRequired()
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<int?>("AnoModelo")
                         .IsRequired()
-                        .HasColumnType("integer");
+                        .HasColumnType("int");
 
                     b.Property<string>("Chassi")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("IdMarca")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("IdModelo")
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("NomeMarca")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasColumnType("varchar(200)");
 
                     b.Property<string>("NomeModelo")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasColumnType("varchar(200)");
 
                     b.Property<string>("Observacoes")
                         .HasMaxLength(500)
-                        .HasColumnType("character varying(500)");
+                        .HasColumnType("varchar(500)");
 
                     b.Property<string>("Placa")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasColumnType("longtext");
 
                     b.Property<decimal?>("ValorFIPE")
                         .HasColumnType("decimal(18, 2)");

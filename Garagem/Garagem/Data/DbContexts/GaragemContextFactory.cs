@@ -10,7 +10,10 @@ public class GaragemContextFactory : IDesignTimeDbContextFactory<GaragemContext>
     {
         string connectionString = AppConfig.GetConnectionString();
         var optionsBuilder = new DbContextOptionsBuilder<GaragemContext>();
-        optionsBuilder.UseNpgsql(connectionString);
+
+        // Usar UseMySql para configurar o contexto para MySQL
+        optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+
         return new GaragemContext(optionsBuilder.Options);
     }
 }

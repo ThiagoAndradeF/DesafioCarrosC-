@@ -22,6 +22,7 @@ public static class AppConfig
     }
     public static string GetConnectionString()
     {
-        return "Host=localhost;Port=5432;Database=Garagem;Username=postgres;Password=3309;Include Error Detail=true";
+        return "Server=localhost;Port=3306;Database=Garagem;Uid=root;Pwd=1234;"
+;
     }
 }

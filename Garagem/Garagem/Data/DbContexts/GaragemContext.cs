@@ -9,7 +9,7 @@ namespace Garagem.Data.DbContexts
         private string _connectionString = AppConfig.GetConnectionString();
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
             if(!optionsBuilder.IsConfigured){
-                optionsBuilder.UseNpgsql(_connectionString);
+                optionsBuilder.UseMySql(_connectionString, ServerVersion.AutoDetect(_connectionString));
             } 
         }
         public DbSet<Veiculo> Veiculos { get; set; }

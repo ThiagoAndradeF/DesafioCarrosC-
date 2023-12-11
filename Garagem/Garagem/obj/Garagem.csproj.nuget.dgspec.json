@@ -81,21 +81,17 @@
               "target": "Package",
               "version": "[8.2.0, )"
             },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.22, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
             },
-            "Npgsql": {
-              "target": "Package",
-              "version": "[8.0.1, )"
-            },
-            "Npgsql.EntityFrameworkCore.PostgreSQL": {
-              "target": "Package",
-              "version": "[8.0.0, )"
-            },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[8.0.0-beta.2, )"
             }
           },
           "imports": [

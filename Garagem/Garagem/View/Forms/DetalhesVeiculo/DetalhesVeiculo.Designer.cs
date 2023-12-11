@@ -319,6 +319,7 @@
             Controls.Add(deleteButton);
             Controls.Add(editButton);
             Name = "DetalhesVeiculo";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "DetalhesVeiculo";
             TopMost = true;
             Load += DetalhesVeiculo_Load;

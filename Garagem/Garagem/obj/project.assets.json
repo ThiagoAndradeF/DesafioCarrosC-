@@ -907,15 +907,35 @@
           }
         }
       },
-      "MySqlConnector/2.2.5": {
+      "MySql.Data.EntityFrameworkCore/8.0.22": {
         "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "3.1.1",
+          "MySql.Data": "8.0.22"
+        },
         "compile": {
-          "lib/net7.0/MySqlConnector.dll": {
+          "lib/netstandard2.1/MySql.Data.EntityFrameworkCore.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net7.0/MySqlConnector.dll": {
+          "lib/netstandard2.1/MySql.Data.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "MySqlConnector/2.3.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.1"
+        },
+        "compile": {
+          "lib/net8.0/MySqlConnector.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/MySqlConnector.dll": {
             "related": ".xml"
           }
         }
@@ -933,54 +953,19 @@
           }
         }
       },
-      "Npgsql/8.0.1": {
+      "Pomelo.EntityFrameworkCore.MySql/8.0.0-beta.2": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Logging.Abstractions": "8.0.0"
-        },
-        "compile": {
-          "lib/net8.0/Npgsql.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/Npgsql.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Npgsql.EntityFrameworkCore.PostgreSQL/8.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "8.0.0",
-          "Microsoft.EntityFrameworkCore.Abstractions": "8.0.0",
           "Microsoft.EntityFrameworkCore.Relational": "8.0.0",
-          "Npgsql": "8.0.0"
+          "MySqlConnector": "2.3.1"
         },
         "compile": {
-          "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+          "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Pomelo.EntityFrameworkCore.MySql/7.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "7.0.2",
-          "MySqlConnector": "2.2.5"
-        },
-        "compile": {
-          "lib/net7.0/Pomelo.EntityFrameworkCore.MySql.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net7.0/Pomelo.EntityFrameworkCore.MySql.dll": {
+          "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.dll": {
             "related": ".xml"
           }
         }
@@ -2980,30 +2965,47 @@
         "runtimes/win-x64/native/krbcc64.dll"
       ]
     },
-    "MySqlConnector/2.2.5": {
-      "sha512": "6sinY78RvryhHwpup3awdjYO7d5hhWahb5p/1VDODJhSxJggV/sBbYuKK5IQF9TuzXABiddqUbmRfM884tqA3Q==",
+    "MySql.Data.EntityFrameworkCore/8.0.22": {
+      "sha512": "o/+OMqQ0fw4f6COfRrbwqP0CKcqoFkCfb1Rl3mfgUcae3XqAkiA6t8rsjA1wnkxUvwfNYX+YM2w2Xa6u4QEUkA==",
       "type": "package",
-      "path": "mysqlconnector/2.2.5",
+      "path": "mysql.data.entityframeworkcore/8.0.22",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/MySql.Data.EntityFrameworkCore.dll",
+        "lib/netstandard2.0/MySql.Data.EntityFrameworkCore.xml",
+        "lib/netstandard2.1/MySql.Data.EntityFrameworkCore.dll",
+        "lib/netstandard2.1/MySql.Data.EntityFrameworkCore.xml",
+        "mysql.data.entityframeworkcore.8.0.22.nupkg.sha512",
+        "mysql.data.entityframeworkcore.nuspec"
+      ]
+    },
+    "MySqlConnector/2.3.1": {
+      "sha512": "FYTnvNBbNSZotSWUerK22Ztsc3vx3wBRZ4veavkUbfCBNthtCr3CH5Wpoo4l5gBD2TmQD9JbL33Gf9kWko1yYw==",
+      "type": "package",
+      "path": "mysqlconnector/2.3.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
-        "lib/net461/MySqlConnector.dll",
-        "lib/net461/MySqlConnector.xml",
+        "lib/net462/MySqlConnector.dll",
+        "lib/net462/MySqlConnector.xml",
         "lib/net471/MySqlConnector.dll",
         "lib/net471/MySqlConnector.xml",
+        "lib/net48/MySqlConnector.dll",
+        "lib/net48/MySqlConnector.xml",
         "lib/net6.0/MySqlConnector.dll",
         "lib/net6.0/MySqlConnector.xml",
         "lib/net7.0/MySqlConnector.dll",
         "lib/net7.0/MySqlConnector.xml",
-        "lib/netcoreapp3.1/MySqlConnector.dll",
-        "lib/netcoreapp3.1/MySqlConnector.xml",
+        "lib/net8.0/MySqlConnector.dll",
+        "lib/net8.0/MySqlConnector.xml",
         "lib/netstandard2.0/MySqlConnector.dll",
         "lib/netstandard2.0/MySqlConnector.xml",
         "lib/netstandard2.1/MySqlConnector.dll",
         "lib/netstandard2.1/MySqlConnector.xml",
         "logo.png",
-        "mysqlconnector.2.2.5.nupkg.sha512",
+        "mysqlconnector.2.3.1.nupkg.sha512",
         "mysqlconnector.nuspec"
       ]
     },
@@ -3037,58 +3039,18 @@
         "packageIcon.png"
       ]
     },
-    "Npgsql/8.0.1": {
-      "sha512": "/XQX6n2gKQPnRoP5AhOnz33qL5V6CEY2vqluHPIvK4VZqY/sE/dHOFj+/8Ok7Y5Cbkj6/OZOFLZCiaKcryhS9A==",
+    "Pomelo.EntityFrameworkCore.MySql/8.0.0-beta.2": {
+      "sha512": "rWLS2sdiMmVRAkFeKvGWeuYrEVpqGidK+K9yahbWu7SUMC372GW9KANIegv3YMM0GkvDITyR7gBes1+MUqy1oA==",
       "type": "package",
-      "path": "npgsql/8.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "lib/net6.0/Npgsql.dll",
-        "lib/net6.0/Npgsql.xml",
-        "lib/net7.0/Npgsql.dll",
-        "lib/net7.0/Npgsql.xml",
-        "lib/net8.0/Npgsql.dll",
-        "lib/net8.0/Npgsql.xml",
-        "lib/netstandard2.0/Npgsql.dll",
-        "lib/netstandard2.0/Npgsql.xml",
-        "lib/netstandard2.1/Npgsql.dll",
-        "lib/netstandard2.1/Npgsql.xml",
-        "npgsql.8.0.1.nupkg.sha512",
-        "npgsql.nuspec",
-        "postgresql.png"
-      ]
-    },
-    "Npgsql.EntityFrameworkCore.PostgreSQL/8.0.0": {
-      "sha512": "GDXiMS9peEdjSCU/rfgyHruio7q6tYuywGaktqEi6UPQ6ILechp3fVVX+dHXkIXt4nklCBzYVWkzFrSL9ubKUA==",
-      "type": "package",
-      "path": "npgsql.entityframeworkcore.postgresql/8.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
-        "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.xml",
-        "npgsql.entityframeworkcore.postgresql.8.0.0.nupkg.sha512",
-        "npgsql.entityframeworkcore.postgresql.nuspec",
-        "postgresql.png"
-      ]
-    },
-    "Pomelo.EntityFrameworkCore.MySql/7.0.0": {
-      "sha512": "Qk5WB/skSZet5Yrz6AN2ywjZaB1pxfAmvQ+5I4khTkLwwIamI4QJoH2NphCWLFQL+2ar8HvsNCTmwYk0qhqL0w==",
-      "type": "package",
-      "path": "pomelo.entityframeworkcore.mysql/7.0.0",
+      "path": "pomelo.entityframeworkcore.mysql/8.0.0-beta.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
         "icon.png",
-        "lib/net6.0/Pomelo.EntityFrameworkCore.MySql.dll",
-        "lib/net6.0/Pomelo.EntityFrameworkCore.MySql.xml",
-        "lib/net7.0/Pomelo.EntityFrameworkCore.MySql.dll",
-        "lib/net7.0/Pomelo.EntityFrameworkCore.MySql.xml",
-        "pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
+        "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.dll",
+        "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.xml",
+        "pomelo.entityframeworkcore.mysql.8.0.0-beta.2.nupkg.sha512",
         "pomelo.entityframeworkcore.mysql.nuspec"
       ]
     },
@@ -4431,10 +4393,9 @@
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.0",
       "Microsoft.Extensions.Configuration.Json >= 8.0.0",
       "MySql.Data >= 8.2.0",
+      "MySql.Data.EntityFrameworkCore >= 8.0.22",
       "Newtonsoft.Json >= 13.0.3",
-      "Npgsql >= 8.0.1",
-      "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.0",
-      "Pomelo.EntityFrameworkCore.MySql >= 7.0.0"
+      "Pomelo.EntityFrameworkCore.MySql >= 8.0.0-beta.2"
     ]
   },
   "packageFolders": {
@@ -4518,21 +4479,17 @@
             "target": "Package",
             "version": "[8.2.0, )"
           },
+          "MySql.Data.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[8.0.22, )"
+          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
           },
-          "Npgsql": {
-            "target": "Package",
-            "version": "[8.0.1, )"
-          },
-          "Npgsql.EntityFrameworkCore.PostgreSQL": {
-            "target": "Package",
-            "version": "[8.0.0, )"
-          },
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
-            "version": "[7.0.0, )"
+            "version": "[8.0.0-beta.2, )"
           }
         },
         "imports": [

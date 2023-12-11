@@ -28,7 +28,8 @@ namespace Garagem
             //        ServerVersion.Parse("8.0.34-mysql")));
             services.AddDbContext<GaragemContext>(options => {
                 var connectionString = AppConfig.GetConnectionString();
-                options.UseNpgsql(connectionString);
+                options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            
             });
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             //services.AddDbContext<GaragemContext>();
