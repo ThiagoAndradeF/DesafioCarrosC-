@@ -7,7 +7,7 @@ Antes de começar, certifique-se de ter os seguintes requisitos instalados:
 - [Microsoft .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) (versão utilizada no desenvolvimento)
 - [MySQL Server](https://dev.mysql.com/downloads/mysql/) (ou o sistema de banco de dados que seu aplicativo usa)
 - [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) (opcional, para gerenciar bancos de dados MySQL)
- **Pomelo Entity Framework Core MySQL - Versão mais atualizada
+- Pomelo Entity Framework Core MySQL - Versão mais atualizada (8.0)
 ## Configuração
 
 Para executar este aplicativo na sua máquina local, você precisará configurar a string de conexão com o banco de dados.
