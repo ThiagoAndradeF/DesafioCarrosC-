@@ -49,6 +49,7 @@
             comboBoxMarca = new ComboBox();
             comboBoxModelo = new ComboBox();
             SaveButton = new Button();
+            backButton = new Button();
             SuspendLayout();
             // 
             // txtObs
@@ -63,7 +64,7 @@
             // txtVenda
             // 
             txtVenda.Font = new Font("Segoe UI", 12F);
-            txtVenda.Location = new Point(18, 203);
+            txtVenda.Location = new Point(18, 194);
             txtVenda.Name = "txtVenda";
             txtVenda.Size = new Size(164, 29);
             txtVenda.TabIndex = 37;
@@ -71,7 +72,7 @@
             // txtFipe
             // 
             txtFipe.Font = new Font("Segoe UI", 12F);
-            txtFipe.Location = new Point(202, 203);
+            txtFipe.Location = new Point(202, 194);
             txtFipe.Name = "txtFipe";
             txtFipe.Size = new Size(176, 29);
             txtFipe.TabIndex = 36;
@@ -79,7 +80,7 @@
             // txtChassi
             // 
             txtChassi.Font = new Font("Segoe UI", 12F);
-            txtChassi.Location = new Point(400, 120);
+            txtChassi.Location = new Point(400, 115);
             txtChassi.Name = "txtChassi";
             txtChassi.Size = new Size(154, 29);
             txtChassi.TabIndex = 35;
@@ -87,7 +88,7 @@
             // txtAnoFabricacao
             // 
             txtAnoFabricacao.Font = new Font("Segoe UI", 12F);
-            txtAnoFabricacao.Location = new Point(202, 120);
+            txtAnoFabricacao.Location = new Point(202, 115);
             txtAnoFabricacao.Name = "txtAnoFabricacao";
             txtAnoFabricacao.Size = new Size(176, 29);
             txtAnoFabricacao.TabIndex = 34;
@@ -95,7 +96,7 @@
             // txtAnoModelo
             // 
             txtAnoModelo.Font = new Font("Segoe UI", 12F);
-            txtAnoModelo.Location = new Point(400, 44);
+            txtAnoModelo.Location = new Point(400, 39);
             txtAnoModelo.Name = "txtAnoModelo";
             txtAnoModelo.Size = new Size(154, 29);
             txtAnoModelo.TabIndex = 33;
@@ -104,7 +105,7 @@
             // txtPlaca
             // 
             txtPlaca.Font = new Font("Segoe UI", 12F);
-            txtPlaca.Location = new Point(18, 120);
+            txtPlaca.Location = new Point(18, 115);
             txtPlaca.Name = "txtPlaca";
             txtPlaca.Size = new Size(164, 29);
             txtPlaca.TabIndex = 30;
@@ -112,7 +113,7 @@
             // lblChassi
             // 
             lblChassi.AutoSize = true;
-            lblChassi.Location = new Point(400, 102);
+            lblChassi.Location = new Point(400, 97);
             lblChassi.Name = "lblChassi";
             lblChassi.Size = new Size(41, 15);
             lblChassi.TabIndex = 29;
@@ -121,7 +122,7 @@
             // lblFipe
             // 
             lblFipe.AutoSize = true;
-            lblFipe.Location = new Point(202, 185);
+            lblFipe.Location = new Point(202, 176);
             lblFipe.Name = "lblFipe";
             lblFipe.Size = new Size(29, 15);
             lblFipe.TabIndex = 28;
@@ -130,7 +131,7 @@
             // lblModelo
             // 
             lblModelo.AutoSize = true;
-            lblModelo.Location = new Point(202, 26);
+            lblModelo.Location = new Point(202, 21);
             lblModelo.Name = "lblModelo";
             lblModelo.Size = new Size(48, 15);
             lblModelo.TabIndex = 27;
@@ -139,7 +140,7 @@
             // lblAnoFabricacao
             // 
             lblAnoFabricacao.AutoSize = true;
-            lblAnoFabricacao.Location = new Point(202, 102);
+            lblAnoFabricacao.Location = new Point(202, 97);
             lblAnoFabricacao.Name = "lblAnoFabricacao";
             lblAnoFabricacao.Size = new Size(89, 15);
             lblAnoFabricacao.TabIndex = 26;
@@ -148,7 +149,7 @@
             // lblValorVenda
             // 
             lblValorVenda.AutoSize = true;
-            lblValorVenda.Location = new Point(18, 185);
+            lblValorVenda.Location = new Point(18, 176);
             lblValorVenda.Name = "lblValorVenda";
             lblValorVenda.Size = new Size(68, 15);
             lblValorVenda.TabIndex = 25;
@@ -166,7 +167,7 @@
             // lblPlaca
             // 
             lblPlaca.AutoSize = true;
-            lblPlaca.Location = new Point(18, 102);
+            lblPlaca.Location = new Point(18, 97);
             lblPlaca.Name = "lblPlaca";
             lblPlaca.Size = new Size(35, 15);
             lblPlaca.TabIndex = 23;
@@ -175,7 +176,7 @@
             // lblAnoModelo
             // 
             lblAnoModelo.AutoSize = true;
-            lblAnoModelo.Location = new Point(400, 26);
+            lblAnoModelo.Location = new Point(400, 21);
             lblAnoModelo.Name = "lblAnoModelo";
             lblAnoModelo.Size = new Size(73, 15);
             lblAnoModelo.TabIndex = 22;
@@ -184,7 +185,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(202, 26);
+            label2.Location = new Point(202, 21);
             label2.Name = "label2";
             label2.Size = new Size(0, 15);
             label2.TabIndex = 40;
@@ -192,7 +193,7 @@
             // lblMarca
             // 
             lblMarca.AutoSize = true;
-            lblMarca.Location = new Point(18, 26);
+            lblMarca.Location = new Point(18, 21);
             lblMarca.Name = "lblMarca";
             lblMarca.Size = new Size(40, 15);
             lblMarca.TabIndex = 41;
@@ -209,7 +210,7 @@
             // 
             comboBoxMarca.Font = new Font("Segoe UI", 12F);
             comboBoxMarca.FormattingEnabled = true;
-            comboBoxMarca.Location = new Point(18, 44);
+            comboBoxMarca.Location = new Point(18, 39);
             comboBoxMarca.Name = "comboBoxMarca";
             comboBoxMarca.Size = new Size(164, 29);
             comboBoxMarca.TabIndex = 42;
@@ -219,7 +220,7 @@
             // 
             comboBoxModelo.Font = new Font("Segoe UI", 12F);
             comboBoxModelo.FormattingEnabled = true;
-            comboBoxModelo.Location = new Point(202, 44);
+            comboBoxModelo.Location = new Point(202, 39);
             comboBoxModelo.Name = "comboBoxModelo";
             comboBoxModelo.Size = new Size(164, 29);
             comboBoxModelo.TabIndex = 43;
@@ -228,19 +229,32 @@
             // SaveButton
             // 
             SaveButton.AccessibleName = "saveButton";
-            SaveButton.Location = new Point(643, 127);
+            SaveButton.Location = new Point(624, 176);
             SaveButton.Name = "SaveButton";
-            SaveButton.Size = new Size(140, 73);
+            SaveButton.Size = new Size(143, 80);
             SaveButton.TabIndex = 44;
             SaveButton.Text = "Salvar";
             SaveButton.UseVisualStyleBackColor = true;
             SaveButton.Click += SaveButton_Click;
+            // 
+            // backButton
+            // 
+            backButton.AccessibleDescription = "";
+            backButton.AccessibleName = "backButton";
+            backButton.Location = new Point(624, 24);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(143, 61);
+            backButton.TabIndex = 45;
+            backButton.Text = "Voltar";
+            backButton.UseVisualStyleBackColor = true;
+            backButton.Click += backButton_Click;
             // 
             // CadastroVeiculo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(backButton);
             Controls.Add(SaveButton);
             Controls.Add(comboBoxModelo);
             Controls.Add(comboBoxMarca);
@@ -292,5 +306,6 @@
         private ComboBox comboBoxMarca;
         private ComboBox comboBoxModelo;
         private Button SaveButton;
+        private Button backButton;
     }
 }

@@ -44,11 +44,10 @@ namespace Garagem.Data.DbContexts
                 entity.Property(e => e.Observacoes)
                     .HasMaxLength(500); 
 
-                entity.Property(e => e.IdMarca)
-                    .IsRequired(); 
+                entity.Property(e => e.IdMarca);
 
-                entity.Property(e => e.IdModelo)
-                    .IsRequired();
+                entity.Property(e => e.IdModelo);
+
                 entity.Property(e => e.NomeModelo)
                     .IsRequired()
                     .HasMaxLength(200); 

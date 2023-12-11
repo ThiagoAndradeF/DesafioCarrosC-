@@ -102,7 +102,6 @@
             atualizarButton.TabIndex = 4;
             atualizarButton.Text = "Atualizar";
             atualizarButton.UseVisualStyleBackColor = true;
-            atualizarButton.Click += atualizarButton_Click;
             // 
             // btnAddVeiculo
             // 

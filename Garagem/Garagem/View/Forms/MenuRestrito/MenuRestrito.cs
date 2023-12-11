@@ -93,8 +93,8 @@ namespace Garagem.View
 
         private void btnAddVeiculo_Click(object sender, EventArgs e)
         {
-            var menu = _serviceProvider.GetRequiredService<CadastroVeiculo>();
-            menu.Show();
+            var cadastro = _serviceProvider.GetRequiredService<CadastroVeiculo>();
+            cadastro.Show();
             this.Close();
         }
     }

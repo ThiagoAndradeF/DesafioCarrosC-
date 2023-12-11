@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Garagem.Infra.Repositories;
 using Garagem.Models;
 using Garagem.Services;
+using Microsoft.Extensions.DependencyInjection;
 using static System.Resources.ResXFileRef;
 
 namespace Garagem.View.Forms.NovaPasta1
@@ -24,7 +25,8 @@ namespace Garagem.View.Forms.NovaPasta1
         private List<ModeloWithIndexListDto> _listaModeloIndexada;
         private MarcaDto? _marcaSelecionada;
         private ModeloDto? _modeloSelecionado;
-        public CadastroVeiculo(IVeiculoRepository veiculoRepository, IMarcaRepository marcaRepository, IModeloRepository modeloRepository)
+        private IServiceProvider _serviceProvider;
+        public CadastroVeiculo(IVeiculoRepository veiculoRepository, IMarcaRepository marcaRepository, IModeloRepository modeloRepository, IServiceProvider serviceProvider)
         {
             InitializeComponent();
             _veiculoService = new VeiculoService(veiculoRepository);
@@ -34,6 +36,7 @@ namespace Garagem.View.Forms.NovaPasta1
             _listaModeloIndexada = [];
             _marcaSelecionada = new MarcaDto();
             _modeloSelecionado = new ModeloDto();
+            _serviceProvider = serviceProvider;
             LoadDataComboBoxMarca();
         }
 
@@ -79,8 +82,8 @@ namespace Garagem.View.Forms.NovaPasta1
                 throw new InvalidOperationException($"Não foi possível converter o campo '{value}' para o tipo '{targetType.Name}'", ex);
             }
         }
-      
-       
+
+
         private VeiculoCreateDto atribuirValores()
         {
             VeiculoCreateDto veiculoCreate = new VeiculoCreateDto();
@@ -116,7 +119,7 @@ namespace Garagem.View.Forms.NovaPasta1
                         modeloIndexado.modelo.nome = modelo.nome;
                         modeloIndexado.modelo.codigo = modelo.codigo;
                         modeloIndexado.id = index;
-                        _listaModeloIndexada.Add(modeloIndexado); 
+                        _listaModeloIndexada.Add(modeloIndexado);
                         comboBoxModelo.Items.Add(modelo.nome);
                         index++;
                     }
@@ -125,7 +128,7 @@ namespace Garagem.View.Forms.NovaPasta1
             }
 
         }
-      
+
 
 
 
@@ -148,6 +151,15 @@ namespace Garagem.View.Forms.NovaPasta1
             VeiculoCreateDto novoVeiculo = atribuirValores();
             _veiculoService.CriarVeiculoAsync(novoVeiculo);
             MessageBox.Show("Você conseguiu adicionar um novo veículo", "Ok", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var cadastro = _serviceProvider.GetRequiredService<MenuRestrito>();
+            cadastro.Show();
+            this.Close();
+        }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            var cadastro = _serviceProvider.GetRequiredService<MenuRestrito>();
+            cadastro.Show();
             this.Close();
         }
     }
