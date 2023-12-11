@@ -47,7 +47,8 @@ public class VeiculoService {
     {
         try
         {
-            return await _veiculoRepository.BuscarVeiculoPorIdAsync(idVeiculo);
+             var veiculoFiltrado = await _veiculoRepository.BuscarVeiculoPorIdAsync(idVeiculo);
+            return veiculoFiltrado;
         }
         catch (Exception ex)
         {

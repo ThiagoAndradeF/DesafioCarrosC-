@@ -33,7 +33,6 @@
             optionCadastrar = new TabPage();
             gridVeiculos = new DataGridView();
             groupGrid = new GroupBox();
-            atualizarButton = new Button();
             btnAddVeiculo = new Button();
             menuContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridVeiculos).BeginInit();
@@ -82,7 +81,6 @@
             // 
             // groupGrid
             // 
-            groupGrid.Controls.Add(atualizarButton);
             groupGrid.Controls.Add(gridVeiculos);
             groupGrid.Location = new Point(35, 50);
             groupGrid.Name = "groupGrid";
@@ -91,17 +89,6 @@
             groupGrid.TabStop = false;
             groupGrid.Text = "Veículos Cadastrados";
             groupGrid.Enter += groupGrid_Enter;
-            // 
-            // atualizarButton
-            // 
-            atualizarButton.AccessibleName = "atualizarButton";
-            atualizarButton.Cursor = Cursors.Hand;
-            atualizarButton.Location = new Point(666, 22);
-            atualizarButton.Name = "atualizarButton";
-            atualizarButton.Size = new Size(45, 45);
-            atualizarButton.TabIndex = 4;
-            atualizarButton.Text = "Atualizar";
-            atualizarButton.UseVisualStyleBackColor = true;
             // 
             // btnAddVeiculo
             // 

@@ -100,7 +100,6 @@
             txtAnoModelo.Name = "txtAnoModelo";
             txtAnoModelo.Size = new Size(154, 29);
             txtAnoModelo.TabIndex = 33;
-            txtAnoModelo.TextChanged += txtAnoModelo_TextChanged;
             // 
             // txtPlaca
             // 

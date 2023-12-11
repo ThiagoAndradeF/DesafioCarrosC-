@@ -128,10 +128,6 @@ namespace Garagem.View.Forms.NovaPasta1
             }
 
         }
-
-
-
-
         private void comboBoxModelo_SelectedIndexChanged(object sender, EventArgs e)
         {
             int indexModeloSelecionado = comboBoxMarca.SelectedIndex;
@@ -140,12 +136,6 @@ namespace Garagem.View.Forms.NovaPasta1
                 _modeloSelecionado = _modeloService.EncontrarModeloPorIndex(_listaModeloIndexada, indexModeloSelecionado);
             }
         }
-
-        private void txtAnoModelo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void SaveButton_Click(object sender, EventArgs e)
         {
             VeiculoCreateDto novoVeiculo = atribuirValores();

@@ -37,12 +37,11 @@ namespace Garagem
             services.AddTransient<IVeiculoRepository, VeiculoRepository>();
             services.AddTransient<IGaragemRepository, GaragemRepository>();
             services.AddTransient<IAuthenticationRepository, AuthenticationRepository>();
-            //services.AddScoped<Form1>();
-            //services.AddScoped<MenuRestrito>();
+            services.AddTransient<IDetalhesVeiculoFactory, DetalhesVeiculoFactory>();
             services.AddTransient<Form1>();
             services.AddTransient<MenuRestrito>();
             services.AddTransient<CadastroVeiculo>();
-
+            var serviceProvider = services.BuildServiceProvider();
         }
     }
 }

@@ -30,36 +30,38 @@
         {
             btnEdit = new Button();
             btnDelete = new Button();
+            backButton = new Button();
+            lblMarca = new Label();
+            label2 = new Label();
+            txtObs = new TextBox();
+            txtVenda = new TextBox();
+            txtFipe = new TextBox();
+            txtChassi = new TextBox();
+            txtAnoFabricacao = new TextBox();
+            txtAnoModelo = new TextBox();
+            txtPlaca = new TextBox();
+            lblChassi = new Label();
+            lblFipe = new Label();
+            lblModelo = new Label();
+            lblAnoFabricacao = new Label();
+            lblValorVenda = new Label();
+            label4 = new Label();
             lblPlaca = new Label();
             lblAnoModelo = new Label();
-            lblMarca = new Label();
-            label4 = new Label();
-            lblValorVenda = new Label();
-            lblAnoFabricacao = new Label();
-            lblModelo = new Label();
-            lblFipe = new Label();
-            lblChassi = new Label();
-            txtPlaca = new TextBox();
-            txtMarca = new TextBox();
             txtModelo = new TextBox();
-            txtAnoModelo = new TextBox();
-            txtAnoFabricacao = new TextBox();
-            txtChassi = new TextBox();
-            txtFipe = new TextBox();
-            txtVenda = new TextBox();
-            txtObs = new TextBox();
+            txtMarca = new TextBox();
             SuspendLayout();
             // 
             // btnEdit
             // 
-            btnEdit.FlatStyle = FlatStyle.System;
-            btnEdit.ForeColor = Color.DarkBlue;
+            btnEdit.ForeColor = Color.Gold;
             btnEdit.Location = new Point(658, 111);
             btnEdit.Name = "btnEdit";
             btnEdit.Size = new Size(106, 45);
             btnEdit.TabIndex = 0;
             btnEdit.Text = "Editar";
             btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnDelete
             // 
@@ -70,168 +72,201 @@
             btnDelete.TabIndex = 1;
             btnDelete.Text = "Excluir";
             btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Click += button2_Click;
+            btnDelete.Click += btnDelete_Click;
             // 
-            // lblPlaca
+            // backButton
             // 
-            lblPlaca.AutoSize = true;
-            lblPlaca.Location = new Point(12, 25);
-            lblPlaca.Name = "lblPlaca";
-            lblPlaca.Size = new Size(35, 15);
-            lblPlaca.TabIndex = 2;
-            lblPlaca.Text = "Placa";
-            lblPlaca.Click += label1_Click;
-            // 
-            // lblAnoModelo
-            // 
-            lblAnoModelo.AutoSize = true;
-            lblAnoModelo.Location = new Point(12, 97);
-            lblAnoModelo.Name = "lblAnoModelo";
-            lblAnoModelo.Size = new Size(73, 15);
-            lblAnoModelo.TabIndex = 3;
-            lblAnoModelo.Text = "Ano Modelo";
+            backButton.AccessibleDescription = "";
+            backButton.AccessibleName = "backButton";
+            backButton.Location = new Point(658, 180);
+            backButton.Name = "backButton";
+            backButton.Size = new Size(106, 47);
+            backButton.TabIndex = 66;
+            backButton.Text = "Voltar";
+            backButton.UseVisualStyleBackColor = true;
+            backButton.Click += backButton_Click;
             // 
             // lblMarca
             // 
             lblMarca.AutoSize = true;
-            lblMarca.Location = new Point(196, 25);
+            lblMarca.Location = new Point(30, 25);
             lblMarca.Name = "lblMarca";
             lblMarca.Size = new Size(40, 15);
-            lblMarca.TabIndex = 4;
+            lblMarca.TabIndex = 62;
             lblMarca.Text = "Marca";
             // 
-            // label4
+            // label2
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(12, 297);
-            label4.Name = "label4";
-            label4.Size = new Size(74, 15);
-            label4.TabIndex = 5;
-            label4.Text = "Observações";
+            label2.AutoSize = true;
+            label2.Location = new Point(214, 25);
+            label2.Name = "label2";
+            label2.Size = new Size(0, 15);
+            label2.TabIndex = 61;
             // 
-            // lblValorVenda
+            // txtObs
             // 
-            lblValorVenda.AutoSize = true;
-            lblValorVenda.Location = new Point(12, 180);
-            lblValorVenda.Name = "lblValorVenda";
-            lblValorVenda.Size = new Size(68, 15);
-            lblValorVenda.TabIndex = 6;
-            lblValorVenda.Text = "Valor Venda";
+            txtObs.Location = new Point(30, 320);
+            txtObs.Multiline = true;
+            txtObs.Name = "txtObs";
+            txtObs.ShortcutsEnabled = false;
+            txtObs.Size = new Size(734, 100);
+            txtObs.TabIndex = 60;
             // 
-            // lblAnoFabricacao
+            // txtVenda
             // 
-            lblAnoFabricacao.AutoSize = true;
-            lblAnoFabricacao.Location = new Point(196, 97);
-            lblAnoFabricacao.Name = "lblAnoFabricacao";
-            lblAnoFabricacao.Size = new Size(89, 15);
-            lblAnoFabricacao.TabIndex = 7;
-            lblAnoFabricacao.Text = "Ano Fabricação";
+            txtVenda.Font = new Font("Segoe UI", 12F);
+            txtVenda.Location = new Point(30, 198);
+            txtVenda.Name = "txtVenda";
+            txtVenda.Size = new Size(164, 29);
+            txtVenda.TabIndex = 59;
             // 
-            // lblModelo
+            // txtFipe
             // 
-            lblModelo.AutoSize = true;
-            lblModelo.Location = new Point(394, 25);
-            lblModelo.Name = "lblModelo";
-            lblModelo.Size = new Size(48, 15);
-            lblModelo.TabIndex = 8;
-            lblModelo.Text = "Modelo";
+            txtFipe.Font = new Font("Segoe UI", 12F);
+            txtFipe.Location = new Point(214, 198);
+            txtFipe.Name = "txtFipe";
+            txtFipe.Size = new Size(176, 29);
+            txtFipe.TabIndex = 58;
             // 
-            // lblFipe
+            // txtChassi
             // 
-            lblFipe.AutoSize = true;
-            lblFipe.Location = new Point(196, 180);
-            lblFipe.Name = "lblFipe";
-            lblFipe.Size = new Size(29, 15);
-            lblFipe.TabIndex = 9;
-            lblFipe.Text = "FIPE";
+            txtChassi.Font = new Font("Segoe UI", 12F);
+            txtChassi.Location = new Point(412, 119);
+            txtChassi.Name = "txtChassi";
+            txtChassi.Size = new Size(154, 29);
+            txtChassi.TabIndex = 57;
+            // 
+            // txtAnoFabricacao
+            // 
+            txtAnoFabricacao.Font = new Font("Segoe UI", 12F);
+            txtAnoFabricacao.Location = new Point(214, 119);
+            txtAnoFabricacao.Name = "txtAnoFabricacao";
+            txtAnoFabricacao.Size = new Size(176, 29);
+            txtAnoFabricacao.TabIndex = 56;
+            // 
+            // txtAnoModelo
+            // 
+            txtAnoModelo.Font = new Font("Segoe UI", 12F);
+            txtAnoModelo.Location = new Point(412, 43);
+            txtAnoModelo.Name = "txtAnoModelo";
+            txtAnoModelo.Size = new Size(154, 29);
+            txtAnoModelo.TabIndex = 55;
+            // 
+            // txtPlaca
+            // 
+            txtPlaca.Font = new Font("Segoe UI", 12F);
+            txtPlaca.Location = new Point(30, 119);
+            txtPlaca.Name = "txtPlaca";
+            txtPlaca.Size = new Size(164, 29);
+            txtPlaca.TabIndex = 54;
             // 
             // lblChassi
             // 
             lblChassi.AutoSize = true;
-            lblChassi.Location = new Point(394, 97);
+            lblChassi.Location = new Point(412, 101);
             lblChassi.Name = "lblChassi";
             lblChassi.Size = new Size(41, 15);
-            lblChassi.TabIndex = 10;
+            lblChassi.TabIndex = 53;
             lblChassi.Text = "Chassi";
             // 
-            // txtPlaca
+            // lblFipe
             // 
-            txtPlaca.Location = new Point(12, 43);
-            txtPlaca.Name = "txtPlaca";
-            txtPlaca.Size = new Size(134, 23);
-            txtPlaca.TabIndex = 11;
+            lblFipe.AutoSize = true;
+            lblFipe.Location = new Point(214, 180);
+            lblFipe.Name = "lblFipe";
+            lblFipe.Size = new Size(29, 15);
+            lblFipe.TabIndex = 52;
+            lblFipe.Text = "FIPE";
             // 
-            // txtMarca
+            // lblModelo
             // 
-            txtMarca.Location = new Point(196, 43);
-            txtMarca.Name = "txtMarca";
-            txtMarca.Size = new Size(134, 23);
-            txtMarca.TabIndex = 12;
+            lblModelo.AutoSize = true;
+            lblModelo.Location = new Point(214, 25);
+            lblModelo.Name = "lblModelo";
+            lblModelo.Size = new Size(48, 15);
+            lblModelo.TabIndex = 51;
+            lblModelo.Text = "Modelo";
+            // 
+            // lblAnoFabricacao
+            // 
+            lblAnoFabricacao.AutoSize = true;
+            lblAnoFabricacao.Location = new Point(214, 101);
+            lblAnoFabricacao.Name = "lblAnoFabricacao";
+            lblAnoFabricacao.Size = new Size(89, 15);
+            lblAnoFabricacao.TabIndex = 50;
+            lblAnoFabricacao.Text = "Ano Fabricação";
+            // 
+            // lblValorVenda
+            // 
+            lblValorVenda.AutoSize = true;
+            lblValorVenda.Location = new Point(30, 180);
+            lblValorVenda.Name = "lblValorVenda";
+            lblValorVenda.Size = new Size(68, 15);
+            lblValorVenda.TabIndex = 49;
+            lblValorVenda.Text = "Valor Venda";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(30, 287);
+            label4.Name = "label4";
+            label4.Size = new Size(74, 15);
+            label4.TabIndex = 48;
+            label4.Text = "Observações";
+            // 
+            // lblPlaca
+            // 
+            lblPlaca.AutoSize = true;
+            lblPlaca.Location = new Point(30, 101);
+            lblPlaca.Name = "lblPlaca";
+            lblPlaca.Size = new Size(35, 15);
+            lblPlaca.TabIndex = 47;
+            lblPlaca.Text = "Placa";
+            // 
+            // lblAnoModelo
+            // 
+            lblAnoModelo.AutoSize = true;
+            lblAnoModelo.Location = new Point(412, 25);
+            lblAnoModelo.Name = "lblAnoModelo";
+            lblAnoModelo.Size = new Size(73, 15);
+            lblAnoModelo.TabIndex = 46;
+            lblAnoModelo.Text = "Ano Modelo";
             // 
             // txtModelo
             // 
-            txtModelo.Location = new Point(394, 43);
+            txtModelo.AccessibleName = "txtModelo";
+            txtModelo.Font = new Font("Segoe UI", 12F);
+            txtModelo.Location = new Point(214, 43);
             txtModelo.Name = "txtModelo";
-            txtModelo.Size = new Size(134, 23);
-            txtModelo.TabIndex = 13;
+            txtModelo.Size = new Size(176, 29);
+            txtModelo.TabIndex = 67;
+            txtModelo.TextChanged += txtModelo_TextChanged;
             // 
-            // txtAnoModelo
+            // txtMarca
             // 
-            txtAnoModelo.Location = new Point(12, 115);
-            txtAnoModelo.Name = "txtAnoModelo";
-            txtAnoModelo.Size = new Size(134, 23);
-            txtAnoModelo.TabIndex = 14;
-            // 
-            // txtAnoFabricacao
-            // 
-            txtAnoFabricacao.Location = new Point(196, 115);
-            txtAnoFabricacao.Name = "txtAnoFabricacao";
-            txtAnoFabricacao.Size = new Size(134, 23);
-            txtAnoFabricacao.TabIndex = 15;
-            // 
-            // txtChassi
-            // 
-            txtChassi.Location = new Point(394, 115);
-            txtChassi.Name = "txtChassi";
-            txtChassi.Size = new Size(134, 23);
-            txtChassi.TabIndex = 16;
-            // 
-            // txtFipe
-            // 
-            txtFipe.Location = new Point(196, 198);
-            txtFipe.Name = "txtFipe";
-            txtFipe.Size = new Size(134, 23);
-            txtFipe.TabIndex = 17;
-            // 
-            // txtVenda
-            // 
-            txtVenda.Location = new Point(12, 198);
-            txtVenda.Name = "txtVenda";
-            txtVenda.Size = new Size(134, 23);
-            txtVenda.TabIndex = 18;
-            // 
-            // txtObs
-            // 
-            txtObs.Location = new Point(12, 327);
-            txtObs.Multiline = true;
-            txtObs.Name = "txtObs";
-            txtObs.ShortcutsEnabled = false;
-            txtObs.Size = new Size(765, 88);
-            txtObs.TabIndex = 19;
+            txtMarca.AccessibleName = "txtMarca";
+            txtMarca.Font = new Font("Segoe UI", 12F);
+            txtMarca.Location = new Point(30, 43);
+            txtMarca.Name = "txtMarca";
+            txtMarca.Size = new Size(154, 29);
+            txtMarca.TabIndex = 68;
             // 
             // DetalhesVeiculo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(txtMarca);
+            Controls.Add(txtModelo);
+            Controls.Add(backButton);
+            Controls.Add(lblMarca);
+            Controls.Add(label2);
             Controls.Add(txtObs);
             Controls.Add(txtVenda);
             Controls.Add(txtFipe);
             Controls.Add(txtChassi);
             Controls.Add(txtAnoFabricacao);
             Controls.Add(txtAnoModelo);
-            Controls.Add(txtModelo);
-            Controls.Add(txtMarca);
             Controls.Add(txtPlaca);
             Controls.Add(lblChassi);
             Controls.Add(lblFipe);
@@ -239,9 +274,8 @@
             Controls.Add(lblAnoFabricacao);
             Controls.Add(lblValorVenda);
             Controls.Add(label4);
-            Controls.Add(lblMarca);
-            Controls.Add(lblAnoModelo);
             Controls.Add(lblPlaca);
+            Controls.Add(lblAnoModelo);
             Controls.Add(btnDelete);
             Controls.Add(btnEdit);
             Name = "DetalhesVeiculo";
@@ -266,13 +300,15 @@
         private Label lblFipe;
         private Label lblChassi;
         private TextBox txtPlaca;
-        private TextBox txtMarca;
-        private TextBox txtModelo;
         private TextBox txtAnoModelo;
         private TextBox txtAnoFabricacao;
         private TextBox txtChassi;
         private TextBox txtFipe;
         private TextBox txtVenda;
         private TextBox txtObs;
+        private Button backButton;
+        private Label label2;
+        private TextBox txtModelo;
+        private TextBox txtMarca;
     }
 }

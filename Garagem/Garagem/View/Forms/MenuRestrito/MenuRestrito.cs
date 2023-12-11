@@ -28,6 +28,7 @@ namespace Garagem.View
             _garagemService = new GaragemService(garagemRepository);
             _serviceProvider = serviceProvider;
             InitializeDataGridView();
+
         }
         private void MenuRestrito_Load(object sender, EventArgs e)
         {
@@ -82,12 +83,17 @@ namespace Garagem.View
         }
         private void gridVeiculos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == gridVeiculos.Columns["btnDetalhes"].Index)
+            if (e.ColumnIndex == gridVeiculos.Columns["btnDetalhes"].Index && e.RowIndex >= 0)
             {
                 var idVeiculo = Convert.ToInt32(gridVeiculos.Rows[e.RowIndex].Cells["Id"].Value);
-                //var menu = _serviceProvider.GetRequiredService<DetalhesVeiculo>();
-                //menu.IdVeiculoSelecionado = idVeiculo;
-                //menu.Show();
+
+                // Aqui você obtém a fábrica do contêiner de injeção de dependência
+                var detalhesVeiculoFactory = _serviceProvider.GetRequiredService<IDetalhesVeiculoFactory>();
+
+                // Cria uma instância de DetalhesVeiculo usando a fábrica
+                var detalhesVeiculo = detalhesVeiculoFactory.Create(idVeiculo);
+                detalhesVeiculo.Show();
+
             }
         }
 
