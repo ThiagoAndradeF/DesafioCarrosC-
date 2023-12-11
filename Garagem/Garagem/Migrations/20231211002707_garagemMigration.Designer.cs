@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Garagem.Migrations
 {
     [DbContext(typeof(GaragemContext))]
-    [Migration("20231209232004_garagemMigration")]
+    [Migration("20231211002707_garagemMigration")]
     partial class garagemMigration
     {
         /// <inheritdoc />
@@ -40,28 +40,25 @@ namespace Garagem.Migrations
 
                     b.Property<string>("Chassi")
                         .IsRequired()
-                        .HasMaxLength(17)
-                        .HasColumnType("character varying(17)");
+                        .HasColumnType("text");
 
                     b.Property<string>("IdMarca")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("character varying(15)");
+                        .HasColumnType("text");
 
                     b.Property<string>("IdModelo")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("character varying(15)");
+                        .HasColumnType("text");
 
                     b.Property<string>("NomeMarca")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("character varying(15)");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("NomeModelo")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("character varying(15)");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("Observacoes")
                         .IsRequired()
@@ -70,8 +67,7 @@ namespace Garagem.Migrations
 
                     b.Property<string>("Placa")
                         .IsRequired()
-                        .HasMaxLength(7)
-                        .HasColumnType("character varying(7)");
+                        .HasColumnType("text");
 
                     b.Property<decimal>("ValorFIPE")
                         .HasColumnType("decimal(18, 2)");

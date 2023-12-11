@@ -46,8 +46,15 @@ namespace Garagem.Infra.Repositories
 
         public async Task<bool> CriarVeiculoAsync(VeiculoCreateDto veiculo)
         {
-            await _context.Veiculos.AddAsync(_mapper.Map<Veiculo>(veiculo));
-            return await SaveChangesAsync();
+            try
+            {
+                await _context.Veiculos.AddAsync(_mapper.Map<Veiculo>(veiculo));
+                return await SaveChangesAsync();
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Ocorreu um erro inesperado ao criar um veículo" + ex, "Desculpe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw new Exception("Exception " + ex, ex);
+            }    
         }
 
         public async Task<bool> RemoverVeiculoAsync(int id)

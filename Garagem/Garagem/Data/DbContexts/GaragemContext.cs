@@ -24,12 +24,10 @@ namespace Garagem.Data.DbContexts
                 // entity.ToTable("Veiculos");
                 entity.HasKey(e => e.Id);
                 entity.Property(e => e.Placa)
-                    .IsRequired()
-                    .HasMaxLength(7);
+                    .IsRequired();
 
                 entity.Property(e => e.Chassi)
-                    .IsRequired()
-                    .HasMaxLength(17);
+                    .IsRequired();
 
                 entity.Property(e => e.AnoFabricacao)
                     .IsRequired();
@@ -47,19 +45,17 @@ namespace Garagem.Data.DbContexts
                     .HasMaxLength(500); 
 
                 entity.Property(e => e.IdMarca)
-                    .IsRequired()
-                    .HasMaxLength(15); 
+                    .IsRequired(); 
 
                 entity.Property(e => e.IdModelo)
-                    .IsRequired()
-                    .HasMaxLength(15); 
+                    .IsRequired();
                 entity.Property(e => e.NomeModelo)
                     .IsRequired()
-                    .HasMaxLength(15); 
+                    .HasMaxLength(200); 
 
                 entity.Property(e => e.NomeMarca)
-                    .IsRequired()
-                    .HasMaxLength(15); 
+                    .IsRequired() 
+                    .HasMaxLength(200); 
             });
             modelBuilder.Entity<Veiculo>().HasData(
                 new Veiculo

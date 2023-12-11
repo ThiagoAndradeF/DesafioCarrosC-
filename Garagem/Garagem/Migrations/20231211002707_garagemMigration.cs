@@ -19,17 +19,17 @@ namespace Garagem.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Placa = table.Column<string>(type: "character varying(7)", maxLength: 7, nullable: false),
-                    Chassi = table.Column<string>(type: "character varying(17)", maxLength: 17, nullable: false),
+                    Placa = table.Column<string>(type: "text", nullable: false),
+                    Chassi = table.Column<string>(type: "text", nullable: false),
                     AnoFabricacao = table.Column<int>(type: "integer", nullable: false),
                     AnoModelo = table.Column<int>(type: "integer", nullable: false),
                     ValorFIPE = table.Column<decimal>(type: "numeric(18,2)", nullable: false),
                     ValorVenda = table.Column<decimal>(type: "numeric(18,2)", nullable: false),
                     Observacoes = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
-                    IdMarca = table.Column<string>(type: "character varying(15)", maxLength: 15, nullable: false),
-                    IdModelo = table.Column<string>(type: "character varying(15)", maxLength: 15, nullable: false),
-                    NomeModelo = table.Column<string>(type: "character varying(15)", maxLength: 15, nullable: false),
-                    NomeMarca = table.Column<string>(type: "character varying(15)", maxLength: 15, nullable: false)
+                    IdMarca = table.Column<string>(type: "text", nullable: false),
+                    IdModelo = table.Column<string>(type: "text", nullable: false),
+                    NomeModelo = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
+                    NomeMarca = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {

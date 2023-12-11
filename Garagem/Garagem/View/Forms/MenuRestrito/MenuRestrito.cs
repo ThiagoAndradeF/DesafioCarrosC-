@@ -48,7 +48,7 @@ namespace Garagem.View
             var veiculoTask = _garagemService.ListarVeiculosCadastrados();
             if (veiculoTask != null)
             {
-                IEnumerable<VeiculoDto> veiculos = await veiculoTask;
+                 IEnumerable<VeiculoDto> veiculos = await veiculoTask;
                 foreach (var veiculo in veiculos)
                 {
                     int rowIndex = gridVeiculos.Rows.Add(veiculo.NomeMarca, veiculo.NomeModelo, veiculo.AnoModelo, veiculo.Id);
@@ -95,7 +95,7 @@ namespace Garagem.View
         {
             var menu = _serviceProvider.GetRequiredService<CadastroVeiculo>();
             menu.Show();
-
+            this.Close();
         }
     }
 }

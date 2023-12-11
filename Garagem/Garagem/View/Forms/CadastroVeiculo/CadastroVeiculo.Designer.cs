@@ -43,12 +43,12 @@
             label4 = new Label();
             lblPlaca = new Label();
             lblAnoModelo = new Label();
-            btnSave = new Button();
             label2 = new Label();
             lblMarca = new Label();
             mySqlCommand1 = new MySqlConnector.MySqlCommand();
             comboBoxMarca = new ComboBox();
             comboBoxModelo = new ComboBox();
+            SaveButton = new Button();
             SuspendLayout();
             // 
             // txtObs
@@ -181,20 +181,6 @@
             lblAnoModelo.TabIndex = 22;
             lblAnoModelo.Text = "Ano Modelo";
             // 
-            // btnSave
-            // 
-            btnSave.BackColor = Color.ForestGreen;
-            btnSave.Enabled = false;
-            btnSave.FlatStyle = FlatStyle.Popup;
-            btnSave.ForeColor = Color.DarkBlue;
-            btnSave.Location = new Point(641, 120);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(109, 98);
-            btnSave.TabIndex = 20;
-            btnSave.Text = "Salvar";
-            btnSave.UseVisualStyleBackColor = false;
-            btnSave.Click += btnEdit_Click;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -239,11 +225,23 @@
             comboBoxModelo.TabIndex = 43;
             comboBoxModelo.SelectedIndexChanged += comboBoxModelo_SelectedIndexChanged;
             // 
+            // SaveButton
+            // 
+            SaveButton.AccessibleName = "saveButton";
+            SaveButton.Location = new Point(643, 127);
+            SaveButton.Name = "SaveButton";
+            SaveButton.Size = new Size(140, 73);
+            SaveButton.TabIndex = 44;
+            SaveButton.Text = "Salvar";
+            SaveButton.UseVisualStyleBackColor = true;
+            SaveButton.Click += SaveButton_Click;
+            // 
             // CadastroVeiculo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(SaveButton);
             Controls.Add(comboBoxModelo);
             Controls.Add(comboBoxMarca);
             Controls.Add(lblMarca);
@@ -263,7 +261,6 @@
             Controls.Add(label4);
             Controls.Add(lblPlaca);
             Controls.Add(lblAnoModelo);
-            Controls.Add(btnSave);
             Name = "CadastroVeiculo";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CadastroVeiculo";
@@ -289,11 +286,11 @@
         private Label label4;
         private Label lblPlaca;
         private Label lblAnoModelo;
-        private Button btnSave;
         private Label label2;
         private Label lblMarca;
         private MySqlConnector.MySqlCommand mySqlCommand1;
         private ComboBox comboBoxMarca;
         private ComboBox comboBoxModelo;
+        private Button SaveButton;
     }
 }

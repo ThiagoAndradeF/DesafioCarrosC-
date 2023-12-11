@@ -26,6 +26,10 @@ public class ModeloService{
         }
         
     }   
-    
+    public ModeloDto? EncontrarModeloPorIndex(List<ModeloWithIndexListDto> lista, int id)
+    {
+        var item = lista.FirstOrDefault(m => m.id == id);
+        return item?.modelo;
+    }
 }
 

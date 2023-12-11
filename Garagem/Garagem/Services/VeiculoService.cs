@@ -15,8 +15,8 @@ public class VeiculoService {
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Desculpe", "Ocorreu um erro inesperado ao criar um veículo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            throw new Exception("Ocorreu um erro inesperado ao criar um veículo: ", ex);
+            MessageBox.Show( "Ocorreu um erro inesperado ao criar um veículo" + ex, "Desculpe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            throw new Exception("Ocorreu um erro inesperado ao criar um veículo: " + ex, ex);
         }
     }
     public async Task<bool> EditarVeiculoAsync(int idVeiculo , VeiculoUpdateDto atualizacoesVeiculo)
@@ -27,7 +27,7 @@ public class VeiculoService {
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Desculpe", "Ocorreu um erro inesperado ao editar o veículo selecionado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show( "Ocorreu um erro inesperado ao editar o veículo selecionado", "Desculpe", MessageBoxButtons.OK, MessageBoxIcon.Error);
             throw new Exception("Ocorreu um erro inesperado ao editar o veículoselecionado: ", ex);
         }
     }
@@ -39,7 +39,7 @@ public class VeiculoService {
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Desculpe", "Ocorreu um erro inesperado ao excluir o veículo selecionado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show( "Ocorreu um erro inesperado ao excluir o veículo selecionado", "Desculpe", MessageBoxButtons.OK, MessageBoxIcon.Error);
             throw new Exception("Ocorreu um erro inesperado ao excluir o veículo selecionado: ", ex);
         }
     }
@@ -51,7 +51,7 @@ public class VeiculoService {
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Desculpe", "Ocorreu um erro inesperado ao inesperado ao obter detalhes desse veículo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show( "Ocorreu um erro inesperado ao inesperado ao obter detalhes desse veículo", "Desculpe", MessageBoxButtons.OK, MessageBoxIcon.Error);
             throw new Exception("Ocorreu um erro inesperado ao detalhar esse veículo: ", ex);
         }
     }
