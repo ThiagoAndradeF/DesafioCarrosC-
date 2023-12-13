@@ -22,7 +22,6 @@ public static class AppConfig
     }
     public static string GetConnectionString()
     {
-        return "Server=localhost;Port=3306;Database=Garagem;Uid=root;Pwd=1234;"
-;
+        return "Server=localhost;Port=3306;Database=Garagem;Uid=root;Pwd=1234;";
     }
 }
